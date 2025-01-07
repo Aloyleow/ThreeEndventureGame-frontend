@@ -1,0 +1,264 @@
+@media (max-width: 767px) {
+
+  /* App main div */
+  .appMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+}
+
+@media (min-width: 768px) {
+
+  /* App main div */
+  .appMain {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+
+
+}
+
+@media (max-width: 991px) {}
+
+@media (min-width: 992px) {}
+
+a {
+  color: black !important;
+}
+
+.textAlign {
+  text-align: center;
+}
+
+/* Buttons */
+
+.buttonsAuth {
+  background-color: transparent;
+  height: 28px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.buttonsNavigate {
+  border-radius: 5px;
+  background-color: transparent;
+  height: 48px;
+  width: 128px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
+/*home displays*/
+
+.formDisplayScreenDiv {
+  height: 480px;
+  width: 320px;
+  border: 1px solid #e0e0e0;
+}
+
+.fdsHeadingDiv {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.fdsFormDiv {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.fdsNavDiv {
+  height: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fdsBTLDiv {
+  margin-left: 20px;
+}
+
+/* Auth forms Layout */
+
+.formsInputDiv {
+  height: 38px;
+  width: 280px;
+  margin-bottom: 10px;
+}
+
+.formsInputDiv input {
+  border-radius: 5px;
+  height: 28px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.formsErrorDiv {
+  height: 18px;
+  width: 280px;
+  color: red;
+}
+
+.formNavDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+}
+
+.formSuccess {
+  text-align: center;
+}
+
+/*Game menu*/
+
+.gameMenuPageDiv {
+  height: 480px;
+  width: 320px;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.gmVnotesDiv {
+  margin-left: 10px;
+  font-size: smaller;
+}
+
+.gameMenuDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuItemDiv {
+  cursor: pointer;
+}
+
+/*Character select*/
+
+.charSelectDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.charSelectDiv div {
+  width: 100px;
+}
+
+.charSelectDiv p {
+  margin: 10px
+}
+
+/* toasty */
+
+.toastyToastBackground {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.toastyToast {
+  height: 160px;
+  width: 320px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.toastyToast div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+  /*Game screen*/
+
+  .gameScreenDiv {
+    height: 80vh;
+    width: 90vw;
+    border: 1px solid #e0e0e0;
+  }
+
+
+@keyframes shakeError {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.inputError {
+  animation: shakeError 0.3s ease-in-out;
+  border: 1px solid red;
+}
+
+.loader {
+  justify-self: center;
+  height: 2px;
+  width: 100%;
+  border-radius: 10px;
+  background:
+  linear-gradient(#000 0 0) 0/0% no-repeat #ddd;
+  animation: l1 1s infinite linear;
+}
+
+@keyframes l1 {
+  100% {
+    background-size: 100%
+  }
+}
