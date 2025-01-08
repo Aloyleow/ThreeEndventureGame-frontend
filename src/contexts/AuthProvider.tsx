@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
+import { jwtDecode, JwtPayload } from "jwt-decode";
 
 
 type AuthProviderProps = { 
@@ -12,10 +13,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [tokenExist, setTokenExist] = useState(false);
   
   useEffect(() => {
+
     const token = localStorage.getItem("token")
+    
     if(token) {
-      setToken(token);
+      const tokenValid = validateToken(token)
+      if (tokenValid) {
+        setToken(token);
+      } else {
+        logout()
+      }
     };
+
     setTokenExist(true);
   },[]);
 
@@ -24,8 +33,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setToken(localStorage.getItem("token"));
     } else {
       return null;
-    };
+    }
   };
+
+  const validateToken = (token: string): boolean => {
+    try {
+      const decoded: JwtPayload = jwtDecode(token);
+      const timeNow = (Date.now() / 1000)
+      
+      if (decoded.exp && decoded.exp < timeNow){
+        console.log(decoded.exp);
+      }
+
+      return true
+
+    } catch (error) {
+      console.error("Invalid token:", error);
+      return false;
+    }
+  }
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -36,11 +62,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   if(!tokenExist) {
     return null;
-  };
+  }
 
   return (
     <AuthContext.Provider value={{ token, login, logout, isAuthenticated}}>
       {children}
     </AuthContext.Provider>
-  );
-}
+  )
+};

@@ -25,24 +25,22 @@ const CharacterSelectComponent: React.FC<CharacterSelectComponentProps> = ({ set
   };
 
   const handleOnYes = async () => {
-
-    setLoading(true);
     try {
 
-      const playerChar = selectedCharData;
-      if (!playerChar) {
+      setLoading(true);
+
+      if (!selectedCharData) {
         throw new Error ("Selected character missing");
-      };
+      }
   
       await savePlayerCharacter(selectedCharData);
-      setLoading(false);
+
       setShowToast(false);
       navigate("/verified/gamescreen");
 
     } catch (error) {
-      setLoading(false);
+      
       setShowToastError(true);
-
       if (error instanceof TypeError) {
         setErrorsLog("Server Error, please contact admin");
       } else if (error instanceof Error) {
@@ -51,7 +49,9 @@ const CharacterSelectComponent: React.FC<CharacterSelectComponentProps> = ({ set
         setErrorsLog("Client Error");
       }
 
-    };
+    } finally {
+      setLoading(false);
+    }
 
   };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 
 import deletePlayerCharacter from "../../services/deletePlayerCharacterService";
@@ -14,8 +14,8 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
   const [showToastError, setShowToastError] = useState(false);
   const [errorsLog, setErrorsLog] = useState("");
   const [loading, setLoading] = useState(false);
-  const [tempCharData, setTempCharData] = useState<CharSelectedType>();
-  const navigate = useNavigate();
+  // const [tempCharData, setTempCharData] = useState<CharSelectedType>();
+  // const navigate = useNavigate();
   const { logout } = useAuth();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
         if (checkExistingSess.checked === "na") {
           return
         } else {
-          setTempCharData(checkExistingSess)
+          // setTempCharData(checkExistingSess)
           setShowToast(true)
         }
 
@@ -40,18 +40,18 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
           console.error(`${error.message}`);
         } else {
           console.error("Client Error");
-        };
-      };
+        }
+      }
     };
 
     checkPlayerChar();
   }, []);
 
-  const handleOnYes = () => {
-    setSelectedChar(tempCharData);
-    setShowToast(false);
-    navigate("/verified/gamescreen");
-  };
+  // const handleOnYes = () => {
+  //   setSelectedChar(tempCharData);
+  //   setShowToast(false);
+  //   navigate("/verified/gamescreen");
+  // };
 
   const handleOnDelete = async () => {
     setLoading(true);
@@ -71,27 +71,12 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      };
-    };
+      }
+    }
   };
 
   return (
     <>
-      {showToast &&
-        <div className="toastyToastBackground">
-          <div className="toastyToast">
-            <h3>Exisitng session in place, continue ?</h3>
-            {loading ?
-              <div className="loader">
-              </div>
-              :
-              <div>
-                <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button>
-                <button className="buttonsNavigate" onClick={() => handleOnDelete()}>Delete</button>
-              </div>}
-          </div>
-        </div>
-      }
       {showToast &&
         <div className="toastyToastBackground">
           {!showToastError ?
@@ -102,7 +87,7 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
             </div>
             :
             <div>
-              <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button>
+              {/* <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button> */}
               <button className="buttonsNavigate" onClick={() => handleOnDelete()}>Delete</button>
             </div>} 
           </div>

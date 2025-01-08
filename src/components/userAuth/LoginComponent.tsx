@@ -33,8 +33,8 @@ const LoginComponent = () => {
         const enter = login(true);
         if (enter !== null){
           navigate("/verified"); 
-        };
-      };
+        }
+      }
 
     } catch (error) {
       if (error instanceof TypeError) {
@@ -43,9 +43,9 @@ const LoginComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      };
+      }
       
-    };
+    }
 
   };
 

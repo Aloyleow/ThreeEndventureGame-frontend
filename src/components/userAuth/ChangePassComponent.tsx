@@ -43,8 +43,8 @@ const ChangePassComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      };
-    };
+      }
+    }
   };
 
   const handleErrorsOnClick = (oldpassword: string, newpassword: string) => {

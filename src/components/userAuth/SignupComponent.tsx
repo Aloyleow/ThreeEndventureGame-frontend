@@ -38,8 +38,8 @@ const SignupComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      };
-    };
+      }
+    }
 
   };
 
@@ -61,7 +61,7 @@ const SignupComponent = () => {
       }), 500);
 
       return () => clearTimeout(errorAnimationTimeout);
-    };
+    }
   };
 
   return (

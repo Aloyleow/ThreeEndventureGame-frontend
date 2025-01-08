@@ -2,7 +2,10 @@ const GameScreenPage = () => {
 
   return (
     <div className="gameScreenDiv">
-     Hi
+     show items first,
+     show route,
+     go in route,
+     
     </div>
   )
 }
