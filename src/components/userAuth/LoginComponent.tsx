@@ -1,9 +1,10 @@
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import loginUser from '../../services/loginService';
 import { useState } from 'react';
 import { useAuth } from '../../contexts/useAuth';
 import { useNavigate } from 'react-router-dom';
+
+import loginUser from '../../services/loginService';
 
 const loginSchema = yup.object().shape({
   username: yup.string().required("Username required"),
@@ -15,10 +16,6 @@ type FormikLoginData = {
   password: string;
 };
 
-// type LoginComponentProps = {
-
-// };
-
 const LoginComponent = () => {
   const [errorsLog, setErrorsLog] = useState("");
   const [errorsAnimation, setErrorsAnimation] = useState({
@@ -26,7 +23,7 @@ const LoginComponent = () => {
     password: false
   });
   const navigate = useNavigate();
-  const { login } = useAuth()
+  const { login } = useAuth();
 
   const handleLoginUser = async (formikData: FormikLoginData) => {
     try {
@@ -35,8 +32,8 @@ const LoginComponent = () => {
       if (token) {
         const enter = login(true);
         if (enter !== null){
-          navigate("/verified") 
-        }
+          navigate("/verified"); 
+        };
       };
 
     } catch (error) {
@@ -46,9 +43,9 @@ const LoginComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      }
+      };
       
-    }
+    };
 
   };
 
@@ -68,7 +65,7 @@ const LoginComponent = () => {
       }), 500);
 
       return () => clearTimeout(errorAnimationTimeout);
-    }
+    };
 
   };
 

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react"
-import playerCharacter from "../../services/playerCharacterService"
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import deletePlayerCharacter from "../../services/deletePlayerCharacterService";
 import { useAuth } from "../../contexts/useAuth";
+
+import deletePlayerCharacter from "../../services/deletePlayerCharacterService";
+import playerCharacter from "../../services/playerCharacterService";
 
 type ExistingSessionComponentProps = {
   setSelectedChar: React.Dispatch<React.SetStateAction<CharSelectedType | undefined>>;
@@ -12,10 +13,10 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
   const [showToast, setShowToast] = useState(false);
   const [showToastError, setShowToastError] = useState(false);
   const [errorsLog, setErrorsLog] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [tempCharData, setTempCharData] = useState<CharSelectedType>();
-  const navigate = useNavigate()
-  const { logout } = useAuth()
+  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   useEffect(() => {
 
@@ -39,26 +40,26 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
           console.error(`${error.message}`);
         } else {
           console.error("Client Error");
-        }
-      }
-    }
+        };
+      };
+    };
 
-    checkPlayerChar()
-  }, [])
+    checkPlayerChar();
+  }, []);
 
   const handleOnYes = () => {
-    setSelectedChar(tempCharData)
-    setShowToast(false)
-    navigate("/verified/gamescreen")
-  }
+    setSelectedChar(tempCharData);
+    setShowToast(false);
+    navigate("/verified/gamescreen");
+  };
 
   const handleOnDelete = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
 
-      await deletePlayerCharacter()
-      setLoading(false)
-      setShowToast(false)
+      await deletePlayerCharacter();
+      setLoading(false);
+      setShowToast(false);
 
     } catch (error) {
       setLoading(false);
@@ -70,9 +71,9 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      }
-    }
-  }
+      };
+    };
+  };
 
   return (
     <>

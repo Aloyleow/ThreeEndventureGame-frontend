@@ -27,19 +27,19 @@ const gameMenu: GameMenu = [
     display: "Log out",
     link: "logout"
   },
-]
+];
 
 const GameMenuComponent = () => {
-  const { logout } = useAuth()
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleMenuClick = (item: string) => {
     if (item === "logout") {
-      logout()
+      logout();
     } else {
-      navigate(item)
-    }
-  }
+      navigate(item);
+    };
+  };
 
   return (
     <div className="gameMenuDiv">

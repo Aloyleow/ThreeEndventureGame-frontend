@@ -25,7 +25,7 @@ const ChangePassComponent = () => {
 
   const handleChangePass = async (formikData: FormikCpassData) => {
     try {
-      const emailJsData = await changePassword(formikData)
+      const emailJsData = await changePassword(formikData);
 
       await emailjs.send(
         import.meta.env.VITE_EJS_SERVICE_ID,
@@ -34,7 +34,7 @@ const ChangePassComponent = () => {
         import.meta.env.VITE_EJS_PUBLIC_KEY,
       );
 
-      setSuccess(true)
+      setSuccess(true);
 
     } catch (error) {
       if (error instanceof TypeError) {
@@ -43,8 +43,8 @@ const ChangePassComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      }
-    }
+      };
+    };
   };
 
   const handleErrorsOnClick = (oldpassword: string, newpassword: string) => {
@@ -63,7 +63,7 @@ const ChangePassComponent = () => {
       }), 500);
 
       return () => clearTimeout(errorAnimationTimeout);
-    }
+    };
 
   };
 

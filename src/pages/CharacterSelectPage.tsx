@@ -1,4 +1,5 @@
 import React from "react";
+
 import CharacterSelectComponent from "../components/charSelect/CharacterSelectComponent";
 
 type CharacterSelectPageProps = {

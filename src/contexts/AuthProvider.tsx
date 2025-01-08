@@ -14,18 +14,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token")
     if(token) {
-      setToken(token)
-    }
-    setTokenExist(true)
+      setToken(token);
+    };
+    setTokenExist(true);
   },[]);
 
   const login = (verifySuccess: boolean) => {
     if (verifySuccess) {
       setToken(localStorage.getItem("token"));
     } else {
-      return null
-    }
-  }
+      return null;
+    };
+  };
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -35,8 +35,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const isAuthenticated = Boolean(token)
 
   if(!tokenExist) {
-    return null
-  }
+    return null;
+  };
 
   return (
     <AuthContext.Provider value={{ token, login, logout, isAuthenticated}}>

@@ -1,14 +1,9 @@
-import React from "react"
 import { useNavigate } from "react-router-dom";
 
 import LoginComponent from "../components/userAuth/LoginComponent";
 
-// type LoginPageProps = {
-  
-// }
-
 const LoginPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   
   return (
     <>

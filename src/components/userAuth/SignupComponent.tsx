@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup'
 import { useState } from 'react';
+
 import signupUser from '../../services/signupService';
 
 const signupSchema = yup.object().shape({
@@ -37,8 +38,8 @@ const SignupComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      }
-    }
+      };
+    };
 
   };
 
@@ -59,8 +60,8 @@ const SignupComponent = () => {
         password: false
       }), 500);
 
-      return () => clearTimeout(errorAnimationTimeout)
-    }
+      return () => clearTimeout(errorAnimationTimeout);
+    };
   };
 
   return (

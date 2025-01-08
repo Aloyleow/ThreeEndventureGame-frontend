@@ -31,7 +31,7 @@ const ForgetPassComponent = () => {
         import.meta.env.VITE_EJS_PUBLIC_KEY,
       );
 
-      setSuccess(true)
+      setSuccess(true);
 
     } catch (error) {
       if (error instanceof TypeError) {
@@ -40,8 +40,8 @@ const ForgetPassComponent = () => {
         setErrorsLog(`${error.message}`);
       } else {
         setErrorsLog("Client Error");
-      }
-    }
+      };
+    };
 
   };
 
@@ -51,7 +51,7 @@ const ForgetPassComponent = () => {
       setErrorsAnimation(true);
       const errorAnimationTimeout = setTimeout(() => setErrorsAnimation(false), 500);
       return clearTimeout(errorAnimationTimeout);
-    }
+    };
 
   };
 

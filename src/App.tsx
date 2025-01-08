@@ -1,6 +1,6 @@
 import { useState } from "react"
-
 import { Route, Routes } from "react-router-dom"
+
 import SignupPage from "./pages/SignupPage"
 import LoginPage from "./pages/LoginPage"
 import ForgetPassPage from "./pages/ForgotPassPage"
@@ -11,8 +11,8 @@ import GameScreenPage from "./pages/GameScreenPage"
 
 
 function App() {
-  const [selectedChar, setSelectedChar] = useState<CharSelectedType | undefined>()
-  console.log(selectedChar)
+  const [selectedChar, setSelectedChar] = useState<CharSelectedType | undefined>();
+  console.log(selectedChar);
   
   return (
     <>

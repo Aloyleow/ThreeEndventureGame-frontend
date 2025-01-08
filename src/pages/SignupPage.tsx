@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import SignupComponent from "../components/userAuth/SignupComponent";
 
 const SignupPage = () => {

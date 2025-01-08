@@ -5,7 +5,7 @@ type AuthContextType = {
   login: (verifySuccess: boolean) => void;
   logout: () => void;
   isAuthenticated: boolean;
-}
+};
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
