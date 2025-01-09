@@ -2,8 +2,8 @@ type PlayerCharacters = {
   image: string;
   alt: string;
   role: string;
-  items: string;
-  skills: string;
+  items: string[];
+  skills: string[];
   health: number;
   mana: number;
   gold: number;
@@ -18,8 +18,8 @@ export const playerCharacters: PlayerCharacters = [
     image: "/sword.svg",
     alt: "swordIcon",
     role: "Knight",
-    items: "",
-    skills: "",
+    items: [],
+    skills: [],
     health: 100,
     mana: 0,
     gold: 20,
@@ -32,8 +32,8 @@ export const playerCharacters: PlayerCharacters = [
     image: "/wand.svg",
     alt: "wandIcon",
     role: "Mage",
-    items: "",
-    skills: "",
+    items: [],
+    skills: [],
     health: 50,
     mana: 50,
     gold: 20,
@@ -47,8 +47,8 @@ export const playerCharacters: PlayerCharacters = [
     image: "/keyboard.svg",
     alt: "keyboardIcon",
     role: "Human",
-    items: "",
-    skills: "",
+    items: [],
+    skills: [],
     health: 30,
     mana: 0,
     gold: 80,

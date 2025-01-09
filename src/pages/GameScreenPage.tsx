@@ -13,7 +13,7 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ selectedChar }) => {
 
   return (
     <div className="gameScreenDiv">
-      <NoCharSelectedError selectedChar={selectedChar} />
+      {/* <NoCharSelectedError selectedChar={selectedChar} /> */}
       <div>
 
       </div>
@@ -26,7 +26,7 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ selectedChar }) => {
 
       </div>
       <div>
-        <HumanDashboardComponent selectedChar={selectedChar} />
+        {/* <HumanDashboardComponent selectedChar={selectedChar} /> */}
       </div>
       <StoreDashboardComponent openStore={openStore} setOpenStore={setOpenStore} />
     </div>

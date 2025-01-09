@@ -12,6 +12,7 @@ import GameScreenPage from "./pages/GameScreenPage"
 
 function App() {
   const [selectedChar, setSelectedChar] = useState<CharSelectedType | undefined>();
+  console.log(selectedChar)
   
   return (
     <>

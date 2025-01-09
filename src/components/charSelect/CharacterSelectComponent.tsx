@@ -7,7 +7,6 @@ import { playerCharacters } from "../../data/characters";
 
 type CharacterSelectComponentProps = {
   setSelectedChar: React.Dispatch<React.SetStateAction<CharSelectedType | undefined>>;
-  selectedChar: CharSelectedType
 };
 
 const CharacterSelectComponent: React.FC<CharacterSelectComponentProps> = ({ setSelectedChar }) => {
