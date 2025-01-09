@@ -5,11 +5,11 @@ import { useAuth } from "../../contexts/useAuth";
 import deletePlayerCharacter from "../../services/deletePlayerCharacterService";
 import playerCharacter from "../../services/playerCharacterService";
 
-type ExistingSessionComponentProps = {
+type ExistingSessionErrorProps = {
   setSelectedChar: React.Dispatch<React.SetStateAction<CharSelectedType | undefined>>;
 };
 
-const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ setSelectedChar }) => {
+const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setSelectedChar }) => {
   const [showToast, setShowToast] = useState(false);
   const [showToastError, setShowToastError] = useState(false);
   const [errorsLog, setErrorsLog] = useState("");
@@ -104,4 +104,4 @@ const ExistingSessionComponent: React.FC<ExistingSessionComponentProps> = ({ set
   )
 }
 
-export default ExistingSessionComponent
+export default ExistingSessionError

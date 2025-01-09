@@ -1,6 +1,6 @@
 import React from "react";
 
-import ExistingSessionComponent from "../components/gameMenu/ExistingSessionComponent";
+import ExistingSessionError from "../components/gameMenu/ExistingSessionError";
 import GameMenuComponent from "../components/gameMenu/GameMenuComponent";
 
 const versionNotes: string = "V1.9.0 Imagine the graphics";
@@ -18,7 +18,7 @@ const GameMenuPage: React.FC<GameMenuPageProps> = ({ setSelectedChar }) => {
       <div className="gmVnotesDiv">
         <p>{versionNotes}</p>
       </div>
-      <ExistingSessionComponent setSelectedChar={setSelectedChar} />
+      <ExistingSessionError setSelectedChar={setSelectedChar} />
     </div>
 
   )

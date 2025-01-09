@@ -12,7 +12,6 @@ import GameScreenPage from "./pages/GameScreenPage"
 
 function App() {
   const [selectedChar, setSelectedChar] = useState<CharSelectedType | undefined>();
-  console.log(selectedChar);
   
   return (
     <>
@@ -24,7 +23,7 @@ function App() {
           <Route path="/forgotpassword" element={<ForgetPassPage/>}/>
           <Route path="/verified" element={<AuthorisedRoute><GameMenuPage setSelectedChar={setSelectedChar}/></AuthorisedRoute>} />
           <Route path="/verified/game" element={<AuthorisedRoute><CharacterSelectPage setSelectedChar={setSelectedChar}/></AuthorisedRoute>}/>
-          <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage/></AuthorisedRoute>} />
+          <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage selectedChar={selectedChar}/></AuthorisedRoute>} />
         </Routes>   
       </div>
     </>

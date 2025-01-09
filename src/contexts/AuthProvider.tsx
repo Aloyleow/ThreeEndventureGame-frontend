@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const timeNow = (Date.now() / 1000)
       
       if (decoded.exp && decoded.exp < timeNow){
-        console.log(decoded.exp);
+        logout()
       }
 
       return true
