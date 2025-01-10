@@ -1,4 +1,4 @@
-const deletePlayerCharacter = async () => {
+const deleteRole = async () => {
   try {
 
     const token = localStorage.getItem("token");
@@ -33,4 +33,4 @@ const deletePlayerCharacter = async () => {
   }
 }
 
-export default deletePlayerCharacter
+export default deleteRole

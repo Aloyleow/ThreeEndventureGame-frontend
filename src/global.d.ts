@@ -1,6 +1,6 @@
 declare global {
 
-  type CharSelectedType = {
+  type PlayerType = {
     image: string,
     alt: string,
     role: string,

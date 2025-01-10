@@ -1,4 +1,4 @@
-type PlayerCharacters = {
+type PlayerRoles = {
   image: string;
   alt: string;
   role: string;
@@ -13,7 +13,7 @@ type PlayerCharacters = {
   win: boolean
 }[];
 
-export const playerCharacters: PlayerCharacters = [
+export const playerRoles: PlayerRoles = [
   {
     image: "/sword.svg",
     alt: "swordIcon",

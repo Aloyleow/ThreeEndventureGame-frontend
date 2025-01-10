@@ -1,4 +1,4 @@
-const playerCharacter = async () => {
+const activeRoleCheck = async () => {
   try {
 
     const token = localStorage.getItem("token");
@@ -33,4 +33,4 @@ const playerCharacter = async () => {
   }
 }
 
-export default playerCharacter
+export default activeRoleCheck

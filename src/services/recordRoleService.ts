@@ -1,4 +1,4 @@
-const savePlayerCharacter = async (playerChar: CharSelectedType) => {
+const recordRole = async (player: PlayerType) => {
   try {
 
     const token = localStorage.getItem("token");
@@ -13,7 +13,7 @@ const savePlayerCharacter = async (playerChar: CharSelectedType) => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(playerChar),
+      body: JSON.stringify(player),
 
     });
 
@@ -34,4 +34,4 @@ const savePlayerCharacter = async (playerChar: CharSelectedType) => {
   }
 }
 
-export default savePlayerCharacter
+export default recordRole

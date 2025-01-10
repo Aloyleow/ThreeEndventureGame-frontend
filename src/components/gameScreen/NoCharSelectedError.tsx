@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type NoCharSelectedErrorProps = {
-  selectedChar: CharSelectedType;
+  player: PlayerType;
 }
 
-const NoCharSelectedError: React.FC<NoCharSelectedErrorProps> = ({ selectedChar }) => {
+const NoCharSelectedError: React.FC<NoCharSelectedErrorProps> = ({ player }) => {
   const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
   
   useEffect(() => {
 
     const checkValidChar = () => {
-      if (!selectedChar) {
+      if (!player) {
         setShowToast(true);       
       } else {
         return;

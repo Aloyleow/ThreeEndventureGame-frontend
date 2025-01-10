@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 
-import deletePlayerCharacter from "../../services/deletePlayerCharacterService";
-import playerCharacter from "../../services/playerCharacterService";
+import deleteRole from "../../services/deleteRoleService";
+import activeRoleCheck from "../../services/activeRoleCheckService";
 
 type ExistingSessionErrorProps = {
-  setSelectedChar: React.Dispatch<React.SetStateAction<CharSelectedType | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType | undefined>>;
 };
 
-const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setSelectedChar }) => {
+const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setPlayer }) => {
   const [showToast, setShowToast] = useState(false);
   const [showToastError, setShowToastError] = useState(false);
   const [errorsLog, setErrorsLog] = useState("");
@@ -24,7 +24,7 @@ const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setSelected
 
       try {
 
-        const checkExistingSess = await playerCharacter()
+        const checkExistingSess = await activeRoleCheck()
         if (checkExistingSess.checked === "na") {
           return
         } else {
@@ -57,7 +57,7 @@ const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setSelected
     setLoading(true);
     try {
 
-      await deletePlayerCharacter();
+      await deleteRole();
       setLoading(false);
       setShowToast(false);
 

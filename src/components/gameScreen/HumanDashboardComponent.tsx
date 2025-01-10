@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
 type HumanDashboardComponentProps = {
-  selectedChar: CharSelectedType;
+  player: PlayerType;
 };
 
-const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ selectedChar }) => {
-  const [currentChar, setCurrentChar] = useState<CharSelectedType>(selectedChar);
+const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ player }) => {
+  const [stats, setCurrentStats] = useState<PlayerType>(player);
   
 
 
   return (
     <div className="HdashboardDiv">
       <div>
-        <p>Health: {currentChar.health}</p>
-        <p>Mana: {currentChar.mana}</p>
-        <p>Attack: {currentChar.attack}</p>
-        <p>Gold: {currentChar.gold}</p>
+        <p>Health: {stats.health}</p>
+        <p>Mana: {stats.mana}</p>
+        <p>Attack: {stats.attack}</p>
+        <p>Gold: {stats.gold}</p>
       </div>
       <div>
 

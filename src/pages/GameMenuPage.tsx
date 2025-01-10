@@ -6,10 +6,10 @@ import GameMenuComponent from "../components/gameMenu/GameMenuComponent";
 const versionNotes: string = "V1.9.0 Imagine the graphics";
 
 type GameMenuPageProps = {
-  setSelectedChar: React.Dispatch<React.SetStateAction<CharSelectedType | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType| undefined>>;
 };
 
-const GameMenuPage: React.FC<GameMenuPageProps> = ({ setSelectedChar }) => {
+const GameMenuPage: React.FC<GameMenuPageProps> = ({ setPlayer }) => {
 
   return (
 
@@ -18,7 +18,7 @@ const GameMenuPage: React.FC<GameMenuPageProps> = ({ setSelectedChar }) => {
       <div className="gmVnotesDiv">
         <p>{versionNotes}</p>
       </div>
-      <ExistingSessionError setSelectedChar={setSelectedChar} />
+      <ExistingSessionError setPlayer={setPlayer} />
     </div>
 
   )

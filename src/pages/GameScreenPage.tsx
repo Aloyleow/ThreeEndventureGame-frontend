@@ -5,15 +5,15 @@ import NoCharSelectedError from "../components/gameScreen/NoCharSelectedError";
 import StoreDashboardComponent from "../components/gameScreen/StoreDashboardComponent";
 
 type GameScreenPageProps = {
-  selectedChar: CharSelectedType;
+  player: PlayerType;
 };
 
-const GameScreenPage: React.FC<GameScreenPageProps> = ({ selectedChar }) => {
+const GameScreenPage: React.FC<GameScreenPageProps> = ({ player }) => {
   const [openStore, setOpenStore] = useState(true)
 
   return (
     <div className="gameScreenDiv">
-      {/* <NoCharSelectedError selectedChar={selectedChar} /> */}
+      <NoCharSelectedError player={player} />
       <div>
 
       </div>
@@ -26,7 +26,7 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ selectedChar }) => {
 
       </div>
       <div>
-        {/* <HumanDashboardComponent selectedChar={selectedChar} /> */}
+        {/* <HumanDashboardComponent player={player} /> */}
       </div>
       <StoreDashboardComponent openStore={openStore} setOpenStore={setOpenStore} />
     </div>

@@ -6,13 +6,13 @@ import LoginPage from "./pages/LoginPage"
 import ForgetPassPage from "./pages/ForgotPassPage"
 import AuthorisedRoute from "./components/AuthorisedRoute"
 import GameMenuPage from "./pages/GameMenuPage"
-import CharacterSelectPage from "./pages/CharacterSelectPage"
 import GameScreenPage from "./pages/GameScreenPage"
+import RoleSelectPage from "./pages/RoleSelectPage"
 
 
 function App() {
-  const [selectedChar, setSelectedChar] = useState<CharSelectedType | undefined>();
-  console.log(selectedChar)
+  const [player, setPlayer] = useState<PlayerType | undefined>();
+  console.log(player)
   
   return (
     <>
@@ -22,9 +22,9 @@ function App() {
           <Route path="/" element={<LoginPage/>} />
           <Route path="/signup" element={<SignupPage/>} />
           <Route path="/forgotpassword" element={<ForgetPassPage/>}/>
-          <Route path="/verified" element={<AuthorisedRoute><GameMenuPage setSelectedChar={setSelectedChar}/></AuthorisedRoute>} />
-          <Route path="/verified/game" element={<AuthorisedRoute><CharacterSelectPage setSelectedChar={setSelectedChar}/></AuthorisedRoute>}/>
-          <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage selectedChar={selectedChar}/></AuthorisedRoute>} />
+          <Route path="/verified" element={<AuthorisedRoute><GameMenuPage setPlayer={setPlayer}/></AuthorisedRoute>} />
+          <Route path="/verified/game" element={<AuthorisedRoute><RoleSelectPage setPlayer={setPlayer}/></AuthorisedRoute>}/>
+          <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage player={player}/></AuthorisedRoute>} />
         </Routes>   
       </div>
     </>
