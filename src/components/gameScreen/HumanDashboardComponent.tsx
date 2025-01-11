@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import InventoryComponent from "./humanDashboard/InventoryComponent";
+import SkillsComponent from "./humanDashboard/SkillsComponent";
 
 type HumanDashboardComponentProps = {
   player: PlayerType;
+  inventory: ItemsInInventory | undefined;
+  setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
 };
 
-const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ player }) => {
-  
+const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ player, inventory, setInventory }) => {
+  const [openInventory, setOpenInventory] = useState(false);
+  const [openSkills, setOpenSkills] = useState(false);
+
   return (
     <div className="HdashboardDiv">
       <div>
@@ -15,18 +21,16 @@ const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ playe
         <p>Gold: {player.gold}</p>
       </div>
       <div>
-        Skills
+        <button onClick={() => setOpenSkills((prev) => !prev)}>Skills</button>
       </div>
       <div>
-        {/* {player.items?.map((item, index) => (
-          <div key={index}>
-            <p>{item}</p>
-          </div>
-        ))} */}
+        <button onClick={() => setOpenInventory((prev) => !prev)}>Inventory</button>
       </div>
       <div>
-        Fight
+        <button>Fight</button>
       </div>
+      {openInventory && <InventoryComponent setOpenInventory={setOpenInventory} inventory={inventory} setInventory={setInventory}/>}
+      {openSkills && <SkillsComponent setOpenSkills={setOpenSkills}/>}
     </div>
   )
 }

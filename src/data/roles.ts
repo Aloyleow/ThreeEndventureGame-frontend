@@ -5,7 +5,9 @@ type PlayerRoles = {
   items: string[];
   skills: string[];
   health: number;
+  maxHealth: number;
   mana: number;
+  maxMana: number;
   gold: number;
   attack: number;
   turns: number;
@@ -21,7 +23,9 @@ export const playerRoles: PlayerRoles = [
     items: [],
     skills: [],
     health: 100,
+    maxHealth: 100,
     mana: 0,
+    maxMana: 0,
     gold: 20,
     attack: 3,
     turns: 0,
@@ -35,7 +39,9 @@ export const playerRoles: PlayerRoles = [
     items: [],
     skills: [],
     health: 50,
+    maxHealth: 50,
     mana: 50,
+    maxMana: 50,
     gold: 20,
     attack: 5,
     turns: 0,
@@ -50,7 +56,9 @@ export const playerRoles: PlayerRoles = [
     items: [],
     skills: [],
     health: 30,
+    maxHealth: 30,
     mana: 0,
+    maxMana: 0,
     gold: 80,
     attack: 1,
     turns: 0,
@@ -62,7 +70,6 @@ export const playerRoles: PlayerRoles = [
 type NPC = {
   role: string;
   health: number;
-
   attack: number;
 }[];
 

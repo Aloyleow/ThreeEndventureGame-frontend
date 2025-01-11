@@ -8,12 +8,6 @@ type ItemsInStock = {
   description: string;
 }[];
 
-type ItemsInInventory = {
-  name: string;
-  cost: number;
-  description: string;
-}[];
-
 type ItemSelected = {
   name: string;
   cost: number;
@@ -29,8 +23,8 @@ type StoreDashboardComponentProps = {
   setOpenStore: React.Dispatch<React.SetStateAction<boolean>>;
   level: number;
   player: PlayerType;
-  setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
   inventory: ItemsInInventory | undefined;
+  setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
 };
 
 const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, level, player, setInventory, inventory }) => {
@@ -95,6 +89,9 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
     <>
       {openStore &&
         <div className="storeToastBackground">
+          <div>
+            <h3>ThreeEnd Store</h3>
+          </div>
           <div>
             {itemsInStock?.map((obj, index) => (
               <div key={index} onClick={() => { handleOnClickItem(obj) }}>

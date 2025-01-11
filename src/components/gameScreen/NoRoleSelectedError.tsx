@@ -12,7 +12,7 @@ const NoRoleSelectedError: React.FC<NoRoleSelectedErrorProps> = ({ player }) => 
   useEffect(() => {
 
     const checkValidRole = () => {
-      if (!player) {
+      if ((player.gold && player.health) === 0) {
         setShowToast(true);       
       } else {
         return;

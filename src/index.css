@@ -8,6 +8,17 @@
     align-items: center;
   }
 
+  /* StoreDashBoard */
+
+  .storeToast {
+    position: absolute;
+    height: 260px;
+    width: 320px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+  }
+
 
 
 }
@@ -27,7 +38,16 @@
     flex-direction: column;
   }
 
+  /* StoreDashBoard */
 
+  .storeToast {
+    position: absolute;
+    height: 260px;
+    width: 360px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+  }
 
 
 }
@@ -211,56 +231,49 @@ a {
   width: 100%;
 }
 
-  /*Game screen*/
+/*Game screen*/
 
-  .gameScreenDiv {
-    height: 80vh;
-    width: 90vw;
-    border: 1px solid #e0e0e0;
-  }
+.gameScreenDiv {
+  height: 80vh;
+  width: 90vw;
+  border: 1px solid #e0e0e0;
+}
 
-  /*Human Dashboar*/
+/*Human Dashboar*/
 
-  .HdashboardDiv {
-    width: 90vw;
-    height: 20vh;
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.HdashboardDiv {
+  width: 90vw;
+  height: 20vh;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  /*Store Dashboard*/
+/*Store Dashboard*/
 
-  .storeToastBackground {
-    top: 25%;
-    left: 25%;
-    position: fixed;
-    height: 50vh;
-    width: 50vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-    border: 1px solid black;
-  }
+.storeToastBackground {
+  top: 25%;
+  left: 25%;
+  position: fixed;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid black;
+}
 
-  .storeToastBackground p {
-    margin: 5px;
-    text-align: center;
-  }
+.storeToastBackground p {
+  margin: 5px;
+  text-align: center;
+}
 
-  .storeToast {
-    position: absolute;
-    height: 260px;
-    width: 360px;
-    text-align: center;
-    background-color: white;
-    border: 1px solid black;
-  }
-  
-  
+
+
+
 
 
 
@@ -297,7 +310,7 @@ a {
   width: 100%;
   border-radius: 10px;
   background:
-  linear-gradient(#000 0 0) 0/0% no-repeat #ddd;
+    linear-gradient(#000 0 0) 0/0% no-repeat #ddd;
   animation: l1 1s infinite linear;
 }
 
