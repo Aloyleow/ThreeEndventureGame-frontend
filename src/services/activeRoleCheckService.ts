@@ -1,4 +1,6 @@
-const activeRoleCheck = async () => {
+type ActiveRoleCheckResponse = PlayerType | {checked : string}
+
+const activeRoleCheck = async (): Promise<ActiveRoleCheckResponse> => {
   try {
 
     const token = localStorage.getItem("token");
@@ -6,7 +8,7 @@ const activeRoleCheck = async () => {
       throw new Error("Authorization token error.");
     }
 
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/playerchar`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/player`, {
 
       method: "GET",
       headers: {
@@ -22,7 +24,7 @@ const activeRoleCheck = async () => {
       throw new Error(json.error);
     }
 
-    return json
+    return json as ActiveRoleCheckResponse;
    
   } catch (error) {
 

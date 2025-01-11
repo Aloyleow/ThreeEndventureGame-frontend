@@ -1,14 +1,15 @@
-type ChangePassword = {
-  oldPassword: string;
-  newPassword: string;
-}
+type Level = {
+  level: number
+};
 
-type EmailJsData = {
-  human_name: string,
-  human_email: string,
-}
+type StoreItemsResponse = {
+  levelId: number;
+  name: string;
+  cost: number;
+  description: string;
+}[];
 
-const changePassword = async (password: ChangePassword) => {
+const storeItems = async (level: Level): Promise<StoreItemsResponse> => {
   try {
 
     const token = localStorage.getItem("token");
@@ -16,25 +17,24 @@ const changePassword = async (password: ChangePassword) => {
       throw new Error("Authorization token error.");
     }
 
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/changepassword`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/storeitems`, {
 
-      method: "PUT",
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(password),
+      body: JSON.stringify(level),
 
     });
 
     const json = await res.json();
-    
     if (json.error) {
       throw new Error(json.error);
     }
-
-    return json as EmailJsData;
    
+    return json as StoreItemsResponse;
+    
   } catch (error) {
 
     console.error(error);
@@ -44,4 +44,4 @@ const changePassword = async (password: ChangePassword) => {
   }
 }
 
-export default changePassword
+export default storeItems

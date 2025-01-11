@@ -2,6 +2,12 @@ type ForgetPass = {
   email: string;
 }
 
+type EmailJsData = {
+  human_name: string,
+  new_password: string,
+  human_email: string,
+}
+
 const forgetPassword = async (email: ForgetPass) => {
   try {
 
@@ -18,7 +24,7 @@ const forgetPassword = async (email: ForgetPass) => {
       throw new Error(json.error);
     }
    
-    return json;
+    return json as EmailJsData;
     
   } catch (error) {
 

@@ -6,7 +6,7 @@ const recordRole = async (player: PlayerType) => {
       throw new Error("Authorization token error.");
     }
 
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/characterselected`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/roleselected`, {
 
       method: "POST",
       headers: {

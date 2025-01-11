@@ -6,7 +6,7 @@ import deleteRole from "../../services/deleteRoleService";
 import activeRoleCheck from "../../services/activeRoleCheckService";
 
 type ExistingSessionErrorProps = {
-  setPlayer: React.Dispatch<React.SetStateAction<PlayerType | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
 const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setPlayer }) => {
@@ -25,7 +25,7 @@ const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setPlayer }
       try {
 
         const checkExistingSess = await activeRoleCheck()
-        if (checkExistingSess.checked === "na") {
+        if ("checked" in checkExistingSess && checkExistingSess.checked === "na") {
           return
         } else {
           // setTempCharData(checkExistingSess)

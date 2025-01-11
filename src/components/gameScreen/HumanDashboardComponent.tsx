@@ -5,22 +5,28 @@ type HumanDashboardComponentProps = {
 };
 
 const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ player }) => {
-  const [stats, setCurrentStats] = useState<PlayerType>(player);
   
-
-
   return (
     <div className="HdashboardDiv">
       <div>
-        <p>Health: {stats.health}</p>
-        <p>Mana: {stats.mana}</p>
-        <p>Attack: {stats.attack}</p>
-        <p>Gold: {stats.gold}</p>
+        <p>Health: {player.health}</p>
+        <p>Mana: {player.mana}</p>
+        <p>Attack: {player.attack}</p>
+        <p>Gold: {player.gold}</p>
       </div>
       <div>
-
+        Skills
       </div>
-    
+      <div>
+        {/* {player.items?.map((item, index) => (
+          <div key={index}>
+            <p>{item}</p>
+          </div>
+        ))} */}
+      </div>
+      <div>
+        Fight
+      </div>
     </div>
   )
 }

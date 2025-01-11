@@ -6,7 +6,7 @@ const deleteRole = async () => {
       throw new Error("Authorization token error.");
     }
 
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/playerchar`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/verified/player`, {
 
       method: "DELETE",
       headers: {

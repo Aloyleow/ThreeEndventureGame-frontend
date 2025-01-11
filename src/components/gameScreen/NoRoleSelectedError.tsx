@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-type NoCharSelectedErrorProps = {
-  player: PlayerType;
+type NoRoleSelectedErrorProps = {
+  player: PlayerType | undefined;
 }
 
-const NoCharSelectedError: React.FC<NoCharSelectedErrorProps> = ({ player }) => {
+const NoRoleSelectedError: React.FC<NoRoleSelectedErrorProps> = ({ player }) => {
   const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
   
   useEffect(() => {
 
-    const checkValidChar = () => {
+    const checkValidRole = () => {
       if (!player) {
         setShowToast(true);       
       } else {
@@ -19,7 +19,7 @@ const NoCharSelectedError: React.FC<NoCharSelectedErrorProps> = ({ player }) => 
       }
     }
 
-    checkValidChar();
+    checkValidRole();
     //hmmmmm ~~~~
   }, []);
 
@@ -33,7 +33,7 @@ const NoCharSelectedError: React.FC<NoCharSelectedErrorProps> = ({ player }) => 
       {showToast &&
         <div className="toastyToastBackground">     
           <div className="toastyToast">
-            <h3>Character not selected !</h3> 
+            <h3>Role not selected !</h3> 
             <div>
               <button className="buttonsNavigate" onClick={() => handleBackToMenu()}>Back to menu</button>
             </div>
@@ -44,4 +44,4 @@ const NoCharSelectedError: React.FC<NoCharSelectedErrorProps> = ({ player }) => 
   )
 }
 
-export default NoCharSelectedError
+export default NoRoleSelectedError

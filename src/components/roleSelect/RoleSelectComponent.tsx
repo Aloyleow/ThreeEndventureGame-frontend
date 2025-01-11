@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 
 import recordRole from "../../services/recordRoleService";
-import { playerRoles } from "../../data/characters";
+import { playerRoles } from "../../data/roles";
 
 type RoleSelectComponentProps = {
-  setPlayer: React.Dispatch<React.SetStateAction<PlayerType | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
 const RoleSelectComponent: React.FC<RoleSelectComponentProps> = ({ setPlayer }) => {
@@ -18,9 +18,9 @@ const RoleSelectComponent: React.FC<RoleSelectComponentProps> = ({ setPlayer }) 
   const navigate = useNavigate();
   const { logout } = useAuth();
 
-  const handleOnCharSelect = (CharSelected: PlayerType) => {
-    setSelectedRoleData(CharSelected);
-    setPlayer(CharSelected);
+  const handleOnRoleSelect = (roleData: PlayerType) => {
+    setSelectedRoleData(roleData);
+    setPlayer(roleData);
     setShowToast(true);
   };
 
@@ -65,7 +65,7 @@ const RoleSelectComponent: React.FC<RoleSelectComponentProps> = ({ setPlayer }) 
       <h3 className="textAlign">Choose your character</h3>
       <div>
         {playerRoles.map((obj, index) => (
-          <div key={index} className="charSelectDiv" onClick={() => handleOnCharSelect(obj)}>
+          <div key={index} className="roleSelectDiv" onClick={() => handleOnRoleSelect(obj)}>
             <div>
               <img src={obj.image} alt={obj.alt} width={58} />
               <p>{obj.role}</p>

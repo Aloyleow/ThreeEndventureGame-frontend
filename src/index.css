@@ -164,9 +164,9 @@ a {
   cursor: pointer;
 }
 
-/*Character select*/
+/*Role select*/
 
-.charSelectDiv {
+.roleSelectDiv {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -174,11 +174,11 @@ a {
   cursor: pointer;
 }
 
-.charSelectDiv div {
+.roleSelectDiv div {
   width: 100px;
 }
 
-.charSelectDiv p {
+.roleSelectDiv p {
   margin: 10px
 }
 
@@ -233,16 +233,22 @@ a {
   /*Store Dashboard*/
 
   .storeToastBackground {
-    top: 0;
+    top: 25%;
+    left: 25%;
     position: fixed;
     height: 50vh;
     width: 50vw;
     display: flex;
-    /* justify-content: center;
+    justify-content: center;
     align-items: center;
-    flex-direction: column; */
+    flex-direction: column;
     background-color: white;
     border: 1px solid black;
+  }
+
+  .storeToastBackground p {
+    margin: 5px;
+    text-align: center;
   }
 
 

@@ -3,7 +3,7 @@ import React from "react";
 import RoleSelectComponent from "../components/roleSelect/RoleSelectComponent";
 
 type RoleSelectPageProps = {
-  setPlayer: React.Dispatch<React.SetStateAction<PlayerType | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
 const RoleSelectPage: React.FC<RoleSelectPageProps> = ({ setPlayer }) => {

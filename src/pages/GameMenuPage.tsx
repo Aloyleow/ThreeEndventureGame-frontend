@@ -6,7 +6,7 @@ import GameMenuComponent from "../components/gameMenu/GameMenuComponent";
 const versionNotes: string = "V1.9.0 Imagine the graphics";
 
 type GameMenuPageProps = {
-  setPlayer: React.Dispatch<React.SetStateAction<PlayerType| undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
 const GameMenuPage: React.FC<GameMenuPageProps> = ({ setPlayer }) => {
