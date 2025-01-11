@@ -8,8 +8,13 @@ type ItemsInStock = {
   description: string;
 }[];
 
+type ItemsInInventory = {
+  name: string;
+  cost: number;
+  description: string;
+}[];
+
 type ItemSelected = {
-  levelId: number;
   name: string;
   cost: number;
   description: string;
@@ -23,14 +28,21 @@ type StoreDashboardComponentProps = {
   openStore: boolean;
   setOpenStore: React.Dispatch<React.SetStateAction<boolean>>;
   level: number;
-  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
-  player: PlayerType; 
+  player: PlayerType;
+  setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
+  inventory: ItemsInInventory | undefined;
 };
 
-const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, level, setPlayer, player }) => {
+const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, level, player, setInventory, inventory }) => {
   const [itemsInStock, setItemsInStock] = useState<ItemsInStock | undefined>();
-  const [cart, setCart] = useState<ItemSelected | undefined>()
-  const [showToast, setShowToast] = useState(false)
+  const [cart, setCart] = useState<ItemSelected>({
+    name: "",
+    cost: 0,
+    description: "",
+  });
+  const [showToast, setShowToast] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [buyError, setbuyError] = useState("")
 
   useEffect(() => {
 
@@ -53,20 +65,31 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
       }
     };
 
-    showItemsInStock({level: level});
+    showItemsInStock({ level: level });
   }, [level]);
 
   const handleOnClickItem = (item: ItemSelected) => {
-    setCart(item);
+    setCart({
+      name: item.name,
+      cost: item.cost,
+      description: item.description
+    });
     setShowToast(true);
   }
 
   const handleOnBuy = () => {
-    setPlayer({...player, items: [...player.items, cart]})
+    if (!cart) {
+      setbuyError("Item not in cart, client error");
+      setShowError(true);
+    }
+    if (player.gold < cart.cost) {
+      setbuyError("Not enough gold !!")
+      setShowError(true);
+    }
 
+    setInventory([...inventory || [], cart])
+    setShowToast(false)
   }
-
-
 
   return (
     <>
@@ -74,7 +97,7 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
         <div className="storeToastBackground">
           <div>
             {itemsInStock?.map((obj, index) => (
-              <div key={index}>
+              <div key={index} onClick={() => { handleOnClickItem(obj) }}>
                 <p>{obj.name}</p>
                 <p>{obj.cost}g</p>
                 <p>-{obj.description}</p>
@@ -82,8 +105,33 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
             ))}
           </div>
           <div>
-            <button onClick={()=> setOpenStore(false)} className="buttonsNavigate">Close shop</button>
+            <button onClick={() => setOpenStore(false)} className="buttonsNavigate">Close shop</button>
           </div>
+          {showToast &&
+            <div className="storeToast">
+              <div>
+                <p>{cart.name}</p>
+                <p>{cart.cost}</p>
+                <p>{cart.description}</p>
+              </div>
+              <div>
+                {showError && <h3>{buyError}</h3>}
+              </div>
+              <div>
+                <button
+                  onClick={() => handleOnBuy()}
+                  className="buttonsNavigate"
+                >Buy</button>
+                <button
+                  onClick={() => {
+                    setShowError(false)
+                    setShowToast(false)
+                  }}
+                  className="buttonsNavigate"
+                >Close</button>
+              </div>
+            </div>
+          }
         </div>}
     </>
   )

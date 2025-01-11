@@ -4,6 +4,12 @@ import HumanDashboardComponent from "../components/gameScreen/HumanDashboardComp
 import StoreDashboardComponent from "../components/gameScreen/StoreDashboardComponent";
 import NoRoleSelectedError from "../components/gameScreen/NoRoleSelectedError";
 
+type ItemsInInventory = {
+  name: string;
+  cost: number;
+  description: string;
+}[];
+
 type GameScreenPageProps = {
   player: PlayerType;
   setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
@@ -11,6 +17,7 @@ type GameScreenPageProps = {
 
 const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) => {
   const [openStore, setOpenStore] = useState(true)
+  const [inventory, setInventory] = useState<ItemsInInventory | undefined>()
   const [level, setLevel] = useState(1)
 
   return (
@@ -30,7 +37,7 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) =>
       <div>
         {/* <HumanDashboardComponent player={player} /> */}
       </div>
-      <StoreDashboardComponent openStore={openStore} setOpenStore={setOpenStore} level={level} setPlayer={setPlayer} player={player}/>
+      <StoreDashboardComponent openStore={openStore} setOpenStore={setOpenStore} level={level} player={player} setInventory={setInventory} inventory={inventory}/>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type NoRoleSelectedErrorProps = {
-  player: PlayerType | undefined;
+  player: PlayerType;
 }
 
 const NoRoleSelectedError: React.FC<NoRoleSelectedErrorProps> = ({ player }) => {
