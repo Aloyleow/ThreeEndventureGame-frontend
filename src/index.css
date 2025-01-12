@@ -255,7 +255,18 @@ a {
 .screenInterfaceDiv {
   width: 90vw;
   height: 50vh;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.landingDiv {
+  width: 90%;
+}
+
+.landingDiv div button {
+  margin-top: 10px;
 }
 
 /*Store Dashboard*/

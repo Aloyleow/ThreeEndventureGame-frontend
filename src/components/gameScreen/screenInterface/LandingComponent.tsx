@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 
 type LandingComponentProps = {
   player: PlayerType;
-  setLanding: React.Dispatch<React.SetStateAction<boolean>>
+  setShowLanding: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const LandingComponent: React.FC<LandingComponentProps> = ({ player, setLanding }) => {
+const LandingComponent: React.FC<LandingComponentProps> = ({ player, setShowLanding }) => {
   const [showStory, setShowStory] = useState(true)
  
     useEffect(() => {
@@ -22,14 +22,15 @@ const LandingComponent: React.FC<LandingComponentProps> = ({ player, setLanding 
     },[player])
   
   return (
-    <div>
+    <div className="landingDiv">
       {showStory ?
         <div>
-          <h1>The only way is getting to one of the Three Ends</h1>
-          <button className="buttonsNavigate" onClick={() => setLanding(false)}>Next</button>
+          <h2>The only way out is getting to one of the</h2>
+          <h2>Three Ends</h2>
+          <button className="buttonsNavigate" onClick={() => setShowLanding(false)}>Next</button>
         </div>
         :
-        <h1>Role not chosen</h1>
+        <h2>Role not chosen</h2>
       }
     </div>
   )
