@@ -7,9 +7,9 @@ declare global {
     items: string[];
     skills: string[];
     health: number;
-    maxHealth: number;
+    maxhealth: number;
     mana: number;
-    maxMana: number;
+    maxmana: number;
     gold: number;
     attack: number;
     turns: number;

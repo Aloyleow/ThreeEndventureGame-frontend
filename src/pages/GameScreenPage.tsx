@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import HumanDashboardComponent from "../components/gameScreen/HumanDashboardComponent";
 import StoreDashboardComponent from "../components/gameScreen/StoreDashboardComponent";
 import NoRoleSelectedError from "../components/gameScreen/NoRoleSelectedError";
+import ScreenInterfaceComponent from "../components/gameScreen/ScreenInterfaceComponent";
 
 type ItemsInInventory = {
   name: string;
@@ -23,16 +24,11 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) =>
   return (
     <div className="gameScreenDiv">
       <NoRoleSelectedError player={player} />
-      <div>
+      <div className="gameScreenNavBar">
 
       </div>
       <div>
-        show image
-
-      </div>
-      <div>
-        show image
-
+        <ScreenInterfaceComponent player={player}/>
       </div>
       <div>
         <HumanDashboardComponent
