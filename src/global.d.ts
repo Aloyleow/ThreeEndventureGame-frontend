@@ -18,6 +18,18 @@ declare global {
     win: boolean
   };
 
+  type GamePath = {
+    pathId: number;
+    pathName: string;
+    encounter: {
+      enemy: boolean;
+      name: string;
+      health: number;
+      attack: number;
+      gold: number;
+    }
+  }[]
+
   type ItemsInInventory = {
     name: string;
     cost: number;
