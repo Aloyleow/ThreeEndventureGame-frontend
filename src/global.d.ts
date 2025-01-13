@@ -4,6 +4,7 @@ declare global {
     image: string;
     alt: string;
     role: string;
+    pathtaken: string[];
     items: string[];
     skills: string[];
     health: number;
