@@ -26,9 +26,6 @@ const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ playe
       <div>
         <button onClick={() => setOpenInventory((prev) => !prev)}>Inventory</button>
       </div>
-      <div>
-        <button>Fight</button>
-      </div>
       {openInventory && <InventoryComponent setOpenInventory={setOpenInventory} inventory={inventory} setInventory={setInventory}/>}
       {openSkills && <SkillsComponent setOpenSkills={setOpenSkills}/>}
     </div>
