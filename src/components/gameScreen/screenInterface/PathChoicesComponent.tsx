@@ -1,17 +1,69 @@
 import React, { useState, useEffect } from "react"
+import gamePath from "../../../services/gamePathService";
+
+type GamePath = {
+  pathId: number;
+  pathName: string;
+  encounter: {
+    enemy: boolean;
+    name: string;
+    health: number;
+    attack: number;
+    gold: number;
+  }
+}[];
 
 type PathChoicesComponentProps = {
-  setShowPath: React.Dispatch<React.SetStateAction<boolean>>
+  player: PlayerType;
+  setShowPaths: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowFight: React.Dispatch<React.SetStateAction<boolean>>;
+  setCurrentPath: React.Dispatch<React.SetStateAction<SelectedPath | undefined>>;
+  level: number;
 };
 
-const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ setShowPath }) => {
-  const [pathChoices, setPathChoices] = useState()
- 
-  
+const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, setShowFight, setShowPaths, setCurrentPath, level }) => {
+  const [pathChoices, setPathChoices] = useState<GamePath>();
+
+  useEffect(() => {
+
+    const loadPathChoices = async (monsters: string[]) => {
+
+      try {
+
+        const checkGamePaths: GamePath = await gamePath({ monsterKilled: monsters });
+        setPathChoices(checkGamePaths);
+
+      } catch (error) {
+
+        if (error instanceof TypeError) {
+          console.error("Server Error, please contact admin");
+        } else if (error instanceof Error) {
+          console.error(`${error.message}`);
+        } else {
+          console.error("Client Error");
+        }
+      }
+
+    }
+
+    loadPathChoices(player.pathtaken)
+
+  }, [player])
+
+  const handleOnPathSelect = (path: SelectedPath) => {
+    setCurrentPath(path);
+    setShowPaths(false);
+    setShowFight(true);
+  };
+
+
   return (
-    <div>
-      PC
-    
+    <div className="pathChoiceDiv">
+      {pathChoices?.map((obj, index) => (
+        <div key={index}>
+          <button onClick={() => handleOnPathSelect(obj)}>{obj.pathName}</button>
+        </div>
+      ))}
     </div>
   )
 }

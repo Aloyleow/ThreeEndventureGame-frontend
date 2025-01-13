@@ -28,7 +28,11 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) =>
 
       </div>
       <div>
-        <ScreenInterfaceComponent player={player}/>
+        <ScreenInterfaceComponent
+          player={player}
+          level={level}
+          setPlayer={setPlayer}
+        />
       </div>
       <div>
         <HumanDashboardComponent

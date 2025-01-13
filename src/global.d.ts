@@ -18,7 +18,7 @@ declare global {
     win: boolean
   };
 
-  type GamePath = {
+  type SelectedPath = {
     pathId: number;
     pathName: string;
     encounter: {
@@ -28,7 +28,7 @@ declare global {
       attack: number;
       gold: number;
     }
-  }[]
+  };
 
   type ItemsInInventory = {
     name: string;

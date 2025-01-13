@@ -8,6 +8,24 @@
     align-items: center;
   }
 
+  /* Gamescreen Interface */
+
+  .enemyFightDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  
+  .playerFightDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
   /* StoreDashBoard */
 
   .storeToast {
@@ -37,6 +55,24 @@
     align-items: center;
     flex-direction: column;
   }
+
+    /* Gamescreen Interface */
+
+    .enemyFightDiv {
+      height: 50%;
+      width: 60%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+    
+    .playerFightDiv {
+      height: 50%;
+      width: 60%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
 
   /* StoreDashBoard */
 
@@ -268,6 +304,25 @@ a {
 .landingDiv div button {
   margin-top: 10px;
 }
+
+.pathChoiceDiv{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fightDiv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 /*Store Dashboard*/
 

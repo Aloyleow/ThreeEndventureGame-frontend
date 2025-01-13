@@ -2,9 +2,21 @@ type PathTaken = {
   monsterKilled: string[];
 }
 
+type GamePath = {
+  pathId: number;
+  pathName: string;
+  encounter: {
+    enemy: boolean;
+    name: string;
+    health: number;
+    attack: number;
+    gold: number;
+  }
+}[];
+
 const gamePath = async (pathTaken: PathTaken) => {
   try {
-    
+
     const token = localStorage.getItem("token");
     if (!token) {
       throw new Error("Authorization token error.");
