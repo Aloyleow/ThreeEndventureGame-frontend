@@ -8,7 +8,6 @@ import AnomalyWinComponent from "./screenInterface/AnomalyWinComponent";
 
 type ScreenInterfaceComponentProps = {
   player: PlayerType;
-  level: number;
   setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
@@ -24,7 +23,7 @@ const pathPlaceHolder = {
   }
 }
 
-const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ player, level, setPlayer }) => {
+const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ player, setPlayer }) => {
   const [showlanding, setShowLanding] = useState(true);
   const [showPaths, setShowPaths] = useState(true);
   const [showFight, setShowFight] = useState(false);
@@ -32,6 +31,8 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
   const [showAnoVictory, setShowAnoVictory] = useState(false);
   const [showAnoLost, setShowAnoLost] = useState(false);
   const [currentPath, setCurrentPath] = useState<SelectedPath>(pathPlaceHolder)
+
+  
 
   return (
     <div className="screenInterfaceDiv">
@@ -46,7 +47,6 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
           setShowPaths={setShowPaths}
           setShowFight={setShowFight}
           setCurrentPath={setCurrentPath}
-          level={level}
         />}
       {!showlanding && !showPaths && showFight &&
         <FightComponent

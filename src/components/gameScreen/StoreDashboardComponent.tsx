@@ -21,13 +21,12 @@ type Level = {
 type StoreDashboardComponentProps = {
   openStore: boolean;
   setOpenStore: React.Dispatch<React.SetStateAction<boolean>>;
-  level: number;
   player: PlayerType;
   inventory: ItemsInInventory | undefined;
   setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
 };
 
-const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, level, player, setInventory, inventory }) => {
+const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, player, setInventory, inventory }) => {
   const [itemsInStock, setItemsInStock] = useState<ItemsInStock | undefined>();
   const [cart, setCart] = useState<ItemSelected>({
     name: "",

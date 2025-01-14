@@ -18,10 +18,9 @@ type PathChoicesComponentProps = {
   setShowPaths: React.Dispatch<React.SetStateAction<boolean>>;
   setShowFight: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentPath: React.Dispatch<React.SetStateAction<SelectedPath>>;
-  level: number;
 };
 
-const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, setShowFight, setShowPaths, setCurrentPath, level }) => {
+const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, setShowFight, setShowPaths, setCurrentPath }) => {
   const [pathChoices, setPathChoices] = useState<GamePath>();
 
   useEffect(() => {
@@ -61,7 +60,7 @@ const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, set
     <div className="pathChoiceDiv">
       {pathChoices?.map((obj, index) => (
         <div key={index}>
-          <button onClick={() => handleOnPathSelect(obj)}>{obj.pathName}</button>
+          <button onClick={() => handleOnPathSelect(obj)} className="buttonsNavigate"><p>{obj.pathName}</p></button>
         </div>
       ))}
     </div>

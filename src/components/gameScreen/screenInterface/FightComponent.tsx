@@ -41,11 +41,13 @@ const FightComponent: React.FC<FightComponentProps> = ({
   setShowFight,
   setShowPaths,
   setShowAnoVictory,
-  setShowAnoLost
+  setShowAnoLost,
 }) => {
-  const [playerAttackComment, setPlayerAttackComment] = useState<string>("")
-  const [enemyAttackComment, setEnemyAttackComment] = useState<string>("")
-  const [showNext, setShowNext] = useState(false)
+  const [playerAttackComment, setPlayerAttackComment] = useState<string>("");
+  const [enemyAttackComment, setEnemyAttackComment] = useState<string>("");
+  const [showNext, setShowNext] = useState(false);
+
+  
 
   const handleOnFight = async () => {
     const reqStatsP: ReqStatsPlayerRoll = {

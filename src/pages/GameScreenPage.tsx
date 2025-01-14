@@ -19,7 +19,7 @@ type GameScreenPageProps = {
 const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) => {
   const [openStore, setOpenStore] = useState(false)
   const [inventory, setInventory] = useState<ItemsInInventory | undefined>()
-  const [level, setLevel] = useState(1)
+  
 
   return (
     <div className="gameScreenDiv">
@@ -30,7 +30,6 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) =>
       <div>
         <ScreenInterfaceComponent
           player={player}
-          level={level}
           setPlayer={setPlayer}
         />
       </div>
@@ -44,7 +43,7 @@ const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) =>
       <StoreDashboardComponent
         openStore={openStore}
         setOpenStore={setOpenStore}
-        level={level}
+        
         player={player}
         inventory={inventory}
         setInventory={setInventory}
