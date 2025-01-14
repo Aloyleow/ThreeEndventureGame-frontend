@@ -15,6 +15,7 @@ Error checks
 
 notes 
 -exisitngsessioncomponent, save file not done up (always delete active session)
+-should i delete lose scenarios or keep it for history and allow users to delete it ?
 
 map
 1. Changed choose fight from v1 to choose path

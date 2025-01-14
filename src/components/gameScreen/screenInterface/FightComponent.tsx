@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { enemyRoll, playerRoll } from "../../../services/fightService";
+import saveRole from "../../../services/roleSaveService";
+import deleteRole from "../../../services/deleteRoleService";
 
 type FightResultsResponse = {
   enemyHealth: number,
@@ -82,17 +84,17 @@ const FightComponent: React.FC<FightComponentProps> = ({
 
       //On player Victory
       if (playerHit.enemyHealth === 0 && currentPath.encounter.name === "Anomaly") {
-        setShowFight(false);
-        setShowAnoVictory(true);
         setPlayer((prev) => ({
           ...prev, 
           active: false,
           win: true
         }));
+        await saveRole(player) 
+        setShowFight(false);
+        setShowAnoVictory(true);
       } 
 
       if (playerHit.enemyHealth === 0 && currentPath.encounter.name !== "Anomaly") {
-        setShowNext(true);
         setPlayer((player) => ({
           ...player,
           pathtaken: [
@@ -101,19 +103,23 @@ const FightComponent: React.FC<FightComponentProps> = ({
           ],
           gold: player.gold + currentPath.encounter.gold
         }))
+        await saveRole(player);
+        setShowNext(true);
       }
 
       //On player death
       if (enemyHit.enemyHealth === 0 && currentPath.encounter.name === "Anomaly") {
+        setPlayer((prev) => ({...prev, active: false}));
+        await deleteRole();
         setShowFight(false);
-        setShowAnoLost(true);
-        setPlayer((prev) => ({...prev, active: false}));     
+        setShowAnoLost(true);    
       }
 
       if (enemyHit.enemyHealth === 0 && currentPath.encounter.name !== "Anomaly") {
+        setPlayer((prev) => ({...prev, active: false}));
+        await deleteRole();
         setShowFight(false);
         setShowDeath(true);
-        setPlayer((prev) => ({...prev, active: false}));
       }
       
 
