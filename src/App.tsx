@@ -28,7 +28,6 @@ const playerTypePlaceHolder = {
 }
 function App() {
   const [player, setPlayer] = useState<PlayerType>(playerTypePlaceHolder);
-  console.log(player)
   
   return (
     <>

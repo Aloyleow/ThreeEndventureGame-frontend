@@ -17,13 +17,19 @@
     justify-content: end;
     align-items: center;
   }
-  
+
   .playerFightDiv {
     height: 50%;
     width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
+  }
+
+  .attackCommentsDiv {
+    width: 220px;
+    height: 60px;
+    font-weight: bold;
   }
 
   /* StoreDashBoard */
@@ -56,23 +62,33 @@
     flex-direction: column;
   }
 
-    /* Gamescreen Interface */
+  /* Gamescreen Interface */
 
-    .enemyFightDiv {
-      height: 50%;
-      width: 60%;
-      display: flex;
-      justify-content: end;
-      align-items: center;
-    }
+  .enemyFightDiv {
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     
-    .playerFightDiv {
-      height: 50%;
-      width: 60%;
-      display: flex;
-      justify-content: start;
-      align-items: center;
-    }
+  }
+
+  .playerFightDiv {
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .attackCommentsDiv {
+    width: 280px;
+    height: 60px;
+    font-size: large;
+    font-weight: bold;
+  }
+
+
 
   /* StoreDashBoard */
 
@@ -305,7 +321,7 @@ a {
   margin-top: 10px;
 }
 
-.pathChoiceDiv{
+.pathChoiceDiv {
   height: 100%;
   width: 100%;
   display: flex;
@@ -320,6 +336,17 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.endingDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.endingDiv div {
+  margin-bottom: 20px;
 }
 
 

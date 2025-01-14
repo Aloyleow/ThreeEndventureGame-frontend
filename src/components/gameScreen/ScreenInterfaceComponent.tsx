@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import LandingComponent from "./screenInterface/LandingComponent";
 import PathChoicesComponent from "./screenInterface/PathChoicesComponent";
 import FightComponent from "./screenInterface/FightComponent";
+import DeathComponent from "./screenInterface/DeathComponent";
+import AnomalyLoseComponent from "./screenInterface/AnomalyLoseComponent";
+import AnomalyWinComponent from "./screenInterface/AnomalyWinComponent";
 
 type ScreenInterfaceComponentProps = {
   player: PlayerType;
@@ -25,6 +28,9 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
   const [showlanding, setShowLanding] = useState(true);
   const [showPaths, setShowPaths] = useState(true);
   const [showFight, setShowFight] = useState(false);
+  const [showDeath, setShowDeath] = useState(false);
+  const [showAnoVictory, setShowAnoVictory] = useState(false);
+  const [showAnoLost, setShowAnoLost] = useState(false);
   const [currentPath, setCurrentPath] = useState<SelectedPath>(pathPlaceHolder)
 
   return (
@@ -48,7 +54,21 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
           setPlayer={setPlayer}
           currentPath={currentPath}
           setCurrentPath={setCurrentPath}
+          setShowDeath={setShowDeath}
+          setShowFight={setShowFight}
+          setShowPaths={setShowPaths}
+          setShowAnoVictory={setShowAnoVictory}
+          setShowAnoLost={setShowAnoLost}
         />}
+      {!showlanding && !showPaths && !showFight && showDeath &&
+        <DeathComponent/>
+      }
+      {!showlanding && !showPaths && !showFight && showAnoLost &&
+        <AnomalyLoseComponent/>
+      } 
+      {!showlanding && !showPaths && !showFight && showAnoVictory &&
+        <AnomalyWinComponent/>
+      }  
     </div>
   )
 }
