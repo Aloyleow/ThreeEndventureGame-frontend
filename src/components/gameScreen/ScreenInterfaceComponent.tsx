@@ -9,11 +9,23 @@ type ScreenInterfaceComponentProps = {
   setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
+const pathPlaceHolder = {
+  pathId: 0,
+  pathName: "",
+  encounter: {
+    enemy: false,
+    name: "",
+    health: 0,
+    attack: 0,
+    gold: 0,
+  }
+}
+
 const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ player, level, setPlayer }) => {
   const [showlanding, setShowLanding] = useState(true);
   const [showPaths, setShowPaths] = useState(true);
   const [showFight, setShowFight] = useState(false);
-  const [currentPath, setCurrentPath] = useState<SelectedPath | undefined>()
+  const [currentPath, setCurrentPath] = useState<SelectedPath>(pathPlaceHolder)
 
   return (
     <div className="screenInterfaceDiv">
@@ -32,9 +44,10 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
         />}
       {!showlanding && !showPaths && showFight &&
         <FightComponent
-        player={player}
-        setPlayer={setPlayer}
-        currentPath={currentPath}
+          player={player}
+          setPlayer={setPlayer}
+          currentPath={currentPath}
+          setCurrentPath={setCurrentPath}
         />}
     </div>
   )

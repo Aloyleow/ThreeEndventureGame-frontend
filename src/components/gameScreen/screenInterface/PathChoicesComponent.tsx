@@ -17,7 +17,7 @@ type PathChoicesComponentProps = {
   player: PlayerType;
   setShowPaths: React.Dispatch<React.SetStateAction<boolean>>;
   setShowFight: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentPath: React.Dispatch<React.SetStateAction<SelectedPath | undefined>>;
+  setCurrentPath: React.Dispatch<React.SetStateAction<SelectedPath>>;
   level: number;
 };
 
