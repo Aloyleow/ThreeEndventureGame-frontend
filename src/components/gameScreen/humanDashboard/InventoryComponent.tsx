@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import inventoryItems from "../../../services/inventoryServices";
 
 type Item = {
   numPath: number;
@@ -21,6 +22,31 @@ type InventoryComponentProps = {
 };
 
 const InventoryComponent: React.FC<InventoryComponentProps> = ({ setOpenInventory, player, setPlayer }) => {
+  const [inventory, setInventory] = useState<ItemsResponse>([])
+
+  useEffect(() => {
+
+    const showItemsInInventory = async () => {
+
+      try {
+
+        const checkItemsInStock: ItemsResponse = await inventoryItems({ items: player.items });
+        setInventory(checkItemsInStock);
+
+      } catch (error) {
+
+        if (error instanceof TypeError) {
+          console.error("Server Error, please contact admin");
+        } else if (error instanceof Error) {
+          console.error(`${error.message}`);
+        } else {
+          console.error("Client Error");
+        }
+      }
+    };
+
+    showItemsInInventory();
+  },[player])
 
   // const handleOnUse = (item: Item) => {
   //   const totalMH = player.maxhealth + item.properties.maxhealth;
@@ -63,18 +89,18 @@ const InventoryComponent: React.FC<InventoryComponentProps> = ({ setOpenInventor
         <h3>Inventory</h3>
       </div>
       <div className="inventoryDiv">
-      {inventory.map((item, index) => (
-        <div key={index} className="invItemDiv">
-          <p>{item.name}</p>
-          <p>{item.cost}g</p>
-          <p>-{item.description}</p>
-          <button onClick={() => handleOnUse(item)}>Use</button>
-        </div>
-      ))}
+        {inventory.map((item, index) => (
+          <div key={index} className="invItemDiv">
+            <p>{item.name}</p>
+            <p>{item.cost}g</p>
+            <p>-{item.description}</p>
+            <button onClick={() => handleOnUse(item)}>Use</button>
+          </div>
+        ))}
       </div>
       <div>
         <button className="buttonsNavigate" onClick={() => setOpenInventory((prev) => !prev)}>Close</button>
-      </div>  
+      </div>
     </div>
   )
 }
