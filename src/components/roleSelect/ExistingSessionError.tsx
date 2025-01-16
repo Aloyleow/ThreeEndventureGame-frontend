@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 
 import deleteRole from "../../services/deleteRoleService";
 import activeRoleCheck from "../../services/activeRoleCheckService";
 
-type ExistingSessionErrorProps = {
-  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
-};
+// type ExistingSessionErrorProps = {
+//   setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
+// };
 
-const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setPlayer }) => {
+const ExistingSessionError = () => {
   const [showToast, setShowToast] = useState(false);
   const [showToastError, setShowToastError] = useState(false);
   const [errorsLog, setErrorsLog] = useState("");

@@ -105,6 +105,9 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
             <div>
               <h3>ThreeEnd Store</h3>
             </div>
+            <div>
+              <h4>Gold: {player.gold}</h4>
+            </div>
             <div className="storeDisplayDiv">
               {itemsInStock?.map((obj, index) => (
                 <div key={index}>

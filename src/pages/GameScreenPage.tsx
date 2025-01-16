@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import HumanDashboardComponent from "../components/gameScreen/HumanDashboardComponent";
 import StoreDashboardComponent from "../components/gameScreen/StoreDashboardComponent";

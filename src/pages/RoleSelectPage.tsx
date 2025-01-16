@@ -12,7 +12,7 @@ const RoleSelectPage: React.FC<RoleSelectPageProps> = ({ setPlayer }) => {
   return (
     <div className="gameMenuPageDiv">
       <RoleSelectComponent setPlayer={setPlayer} />
-      <ExistingSessionError setPlayer={setPlayer} />
+      <ExistingSessionError />
     </div>
   )
 };

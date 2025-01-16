@@ -37,7 +37,7 @@ function App() {
           <Route path="/" element={<LoginPage/>} />
           <Route path="/signup" element={<SignupPage/>} />
           <Route path="/forgotpassword" element={<ForgetPassPage/>}/>
-          <Route path="/verified" element={<AuthorisedRoute><GameMenuPage setPlayer={setPlayer}/></AuthorisedRoute>} />
+          <Route path="/verified" element={<AuthorisedRoute><GameMenuPage/></AuthorisedRoute>} />
           <Route path="/verified/game" element={<AuthorisedRoute><RoleSelectPage setPlayer={setPlayer}/></AuthorisedRoute>}/>
           <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage player={player} setPlayer={setPlayer}/></AuthorisedRoute>} />
         </Routes>   

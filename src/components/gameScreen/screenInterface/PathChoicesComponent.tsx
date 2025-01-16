@@ -67,7 +67,7 @@ const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, set
         ))}
       </div>
       <div>
-        <button className="buttonsNavigate" onClick={() => setOpenStore(true)}>Prepare for your Journey</button>
+        <button className="buttonsNavigate" onClick={() => setOpenStore(true)}>Three End Shop</button>
       </div>
 
     </div>
