@@ -50,17 +50,20 @@
     font-weight: bold;
   }
 
-  /* StoreDashBoard */
+  /* StoreDashBoard / Skills Dashboard */
 
-  .storeToast {
-    position: absolute;
-    height: 260px;
-    width: 320px;
-    text-align: center;
+  .gameToastDiv {
+    position: fixed;
+    height: 90vh;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: white;
     border: 1px solid black;
+    border-radius: 10px;
   }
-
 
 
 }
@@ -126,17 +129,22 @@
 
 
 
-  /* StoreDashBoard */
+  /* StoreDashBoard / Skills Dashboard */
 
-  .storeToast {
-    position: absolute;
-    height: 260px;
-    width: 360px;
-    text-align: center;
+  .gameToastDiv {
+    top: 25%;
+    left: 25%;
+    position: fixed;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: white;
     border: 1px solid black;
+    border-radius: 10px;
   }
-
 
 }
 
@@ -173,12 +181,6 @@ a {
   cursor: pointer;
 }
 
-.buttonsNavigate p {
-  font-weight: bold;
-  font-size: medium;
-  margin: 0
-}
-
 .buttonsGame {
   border-radius: 5px;
   background-color: transparent;
@@ -187,6 +189,12 @@ a {
   border: 1px solid #e0e0e0;
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.buttonsGame p {
+  font-weight: bold;
+  font-size: medium;
+  margin: 0
 }
 
 
@@ -370,6 +378,10 @@ a {
 .pathChoiceDiv {
   height: 100%;
   width: 100%;
+}
+
+.pathChoiceDiv div {
+  height: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -399,26 +411,62 @@ a {
 
 /*Store Dashboard*/
 
-.storeToastBackground {
-  top: 25%;
-  left: 25%;
-  position: fixed;
-  height: 50vh;
-  width: 50vw;
+.storeDisplayDiv {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 10px;
+  margin-bottom: 10px; 
 }
 
-.storeToastBackground p {
-  margin: 5px;
+.storeDisplayDiv p {
+  margin: 0px 10px 10px 0px
+}
+
+.itemDescripDiv {
+  width: 130px;
+  height: 110px;
+}
+
+.cartToast {
+  position: absolute;
+  height: 260px;
+  width: 360px;
+  background-color: white;
+  border: 1px solid black;
   text-align: center;
 }
 
+.cartDisplay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 88%;
+}
+
+.cartButtonDiv button {
+  margin: 0px 10px 0px 10px
+}
+
+/* inventory */
+
+.inventoryDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.invItemDiv {
+  width: 120px;
+  height: 130px;
+}
+
+.invItemDiv p {
+  margin: 0px 10px 10px 0px
+}
 
 @keyframes shakeError {
   0% {

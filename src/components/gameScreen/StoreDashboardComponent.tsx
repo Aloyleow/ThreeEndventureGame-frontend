@@ -1,37 +1,41 @@
 import React, { useEffect, useState } from "react";
 import storeItems from "../../services/storeItemsService";
 
-type ItemsInStock = {
-  levelId: number;
+type Cart = {
+  numPath: number;
   name: string;
   cost: number;
   description: string;
-}[];
-
-type ItemSelected = {
-  name: string;
-  cost: number;
-  description: string;
-}
-
-type Level = {
-  level: number
+  properties: {
+    attack: number;
+    health: number;
+    mana: number;
+    maxhealth: number;
+    maxmana: number;
+  }
 }
 
 type StoreDashboardComponentProps = {
   openStore: boolean;
   setOpenStore: React.Dispatch<React.SetStateAction<boolean>>;
   player: PlayerType;
-  inventory: ItemsInInventory | undefined;
-  setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
 };
 
-const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, player, setInventory, inventory }) => {
-  const [itemsInStock, setItemsInStock] = useState<ItemsInStock | undefined>();
-  const [cart, setCart] = useState<ItemSelected>({
+const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openStore, setOpenStore, player, setPlayer }) => {
+  const [itemsInStock, setItemsInStock] = useState<ItemsResponse>();
+  const [cart, setCart] = useState<Cart>({
+    numPath: 0,
     name: "",
     cost: 0,
     description: "",
+    properties: {
+      attack: 0,
+      health: 0,
+      mana: 0,
+      maxhealth: 0,
+      maxmana: 0,
+    }
   });
   const [showToast, setShowToast] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -39,11 +43,11 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
 
   useEffect(() => {
 
-    const showItemsInStock = async (currentlevel: Level) => {
+    const showItemsInStock = async () => {
 
       try {
 
-        const checkItemsInStock: ItemsInStock = await storeItems(currentlevel);
+        const checkItemsInStock: ItemsResponse = await storeItems({ pathTaken: player.pathtaken.length });
         setItemsInStock(checkItemsInStock);
 
       } catch (error) {
@@ -58,15 +62,11 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
       }
     };
 
-    showItemsInStock({ level: level });
-  }, [level]);
+    showItemsInStock();
+  }, [player.pathtaken]);
 
-  const handleOnClickItem = (item: ItemSelected) => {
-    setCart({
-      name: item.name,
-      cost: item.cost,
-      description: item.description
-    });
+  const handleOnClickItem = (item: Cart) => {
+    setCart(item);
     setShowToast(true);
   }
 
@@ -74,61 +74,92 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
     if (!cart) {
       setbuyError("Item not in cart, client error");
       setShowError(true);
+      return;
     }
     if (player.gold < cart.cost) {
       setbuyError("Not enough gold !!")
       setShowError(true);
+      return;
     }
 
-    setInventory([...inventory || [], cart])
-    setShowToast(false)
-  }
+    setPlayer((prev) => ({
+      ...prev,
+      gold: prev.gold - cart.cost,
+      items: [
+        ...prev.items,
+        cart.name
+      ]
+    }));
+    setItemsInStock((prev) => prev?.filter((item) => item.name !== cart.name))
+    setPlayer((prev) => ({
+      ...prev,
+      items: [...prev.items, cart.name]
+    }))
+    setShowToast(false);
+  };
 
   return (
     <>
       {openStore &&
-        <div className="storeToastBackground">
-          <div>
-            <h3>ThreeEnd Store</h3>
-          </div>
-          <div>
-            {itemsInStock?.map((obj, index) => (
-              <div key={index} onClick={() => { handleOnClickItem(obj) }}>
-                <p>{obj.name}</p>
-                <p>{obj.cost}g</p>
-                <p>-{obj.description}</p>
-              </div>
-            ))}
-          </div>
-          <div>
-            <button onClick={() => setOpenStore(false)} className="buttonsNavigate">Close shop</button>
-          </div>
-          {showToast &&
-            <div className="storeToast">
-              <div>
-                <p>{cart.name}</p>
-                <p>{cart.cost}</p>
-                <p>{cart.description}</p>
-              </div>
-              <div>
-                {showError && <h3>{buyError}</h3>}
-              </div>
-              <div>
-                <button
-                  onClick={() => handleOnBuy()}
-                  className="buttonsNavigate"
-                >Buy</button>
-                <button
-                  onClick={() => {
-                    setShowError(false)
-                    setShowToast(false)
-                  }}
-                  className="buttonsNavigate"
-                >Close</button>
-              </div>
+        <div className="toastyToastBackground">
+          <div className="gameToastDiv">
+            <div>
+              <h3>ThreeEnd Store</h3>
             </div>
-          }
-        </div>}
+            <div className="storeDisplayDiv">
+              {itemsInStock?.map((obj, index) => (
+                <div key={index}>
+                  <div className="itemDescripDiv">
+                    <h4>{obj.name}</h4>
+                    <p>{obj.cost}g</p>
+                    <p>-{obj.description}</p>
+                  </div>
+                  <div>
+                    <button onClick={() => { handleOnClickItem(obj) }}>Buy</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div>
+              <button onClick={() => setOpenStore(false)} className="buttonsNavigate">Close shop</button>
+            </div>
+            {showToast &&
+              <div className="cartToast">
+                <div className="cartDisplay">
+                  <div>
+                    <h4>{cart.name}</h4>
+                    <p>{cart.cost}</p>
+                    <p>{cart.description}</p>
+                    <div>
+                      {showError && <h3>{buyError}</h3>}
+                    </div>
+                  </div>
+                  <div>
+                    <h4>Properties</h4>
+                    {cart.properties.attack !== 0 ? <p>Attack: {cart.properties.attack}</p> : null}
+                    {cart.properties.health !== 0 ? <p>Health: {cart.properties.health}</p> : null}
+                    {cart.properties.maxhealth !== 0 ? <p>Max Health: {cart.properties.maxhealth}</p> : null}
+                    {cart.properties.mana !== 0 ? <p>Mana: {cart.properties.mana}</p> : null}
+                    {cart.properties.maxmana !== 0 ? <p>Max Mana: {cart.properties.maxmana}</p> : null}
+                  </div>
+                </div>
+
+                <div className="cartButtonDiv">
+                  <button
+                    onClick={() => handleOnBuy()}
+                  >Buy</button>
+                  <button
+                    onClick={() => {
+                      setShowError(false)
+                      setShowToast(false)
+                    }}
+                  >Close</button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
     </>
   )
 }

@@ -30,10 +30,18 @@ declare global {
     }
   };
 
-  type ItemsInInventory = {
+  type ItemsResponse = {
+    numPath: number;
     name: string;
     cost: number;
     description: string;
+    properties: {
+      attack: number;
+      health: number;
+      mana: number;
+      maxhealth: number;
+      maxmana: number;
+    }
   }[];
 
 }

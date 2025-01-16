@@ -18,9 +18,10 @@ type PathChoicesComponentProps = {
   setShowPaths: React.Dispatch<React.SetStateAction<boolean>>;
   setShowFight: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentPath: React.Dispatch<React.SetStateAction<SelectedPath>>;
+  setOpenStore: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, setShowFight, setShowPaths, setCurrentPath }) => {
+const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, setShowFight, setShowPaths, setCurrentPath, setOpenStore }) => {
   const [pathChoices, setPathChoices] = useState<GamePath>();
 
   useEffect(() => {
@@ -58,11 +59,17 @@ const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, set
 
   return (
     <div className="pathChoiceDiv">
-      {pathChoices?.map((obj, index) => (
-        <div key={index}>
-          <button onClick={() => handleOnPathSelect(obj)} className="buttonsNavigate"><p>{obj.pathName}</p></button>
-        </div>
-      ))}
+      <div>
+        {pathChoices?.map((obj, index) => (
+          <div key={index}>
+            <button onClick={() => handleOnPathSelect(obj)} className="buttonsGame"><p>{obj.pathName}</p></button>
+          </div>
+        ))}
+      </div>
+      <div>
+        <button className="buttonsNavigate" onClick={() => setOpenStore(true)}>Prepare for your Journey</button>
+      </div>
+
     </div>
   )
 }

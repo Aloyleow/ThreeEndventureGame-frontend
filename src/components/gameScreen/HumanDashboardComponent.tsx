@@ -4,11 +4,11 @@ import SkillsComponent from "./humanDashboard/SkillsComponent";
 
 type HumanDashboardComponentProps = {
   player: PlayerType;
-  inventory: ItemsInInventory | undefined;
-  setInventory: React.Dispatch<React.SetStateAction<ItemsInInventory | undefined>>;
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
+  
 };
 
-const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ player, inventory, setInventory }) => {
+const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ player, setPlayer }) => {
   const [openInventory, setOpenInventory] = useState(false);
   const [openSkills, setOpenSkills] = useState(false);
 
@@ -26,7 +26,7 @@ const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ playe
       <div>
         <button onClick={() => setOpenInventory((prev) => !prev)} className="buttonsGame">Inventory</button>
       </div>
-      {openInventory && <InventoryComponent setOpenInventory={setOpenInventory} inventory={inventory} setInventory={setInventory}/>}
+      {openInventory && <InventoryComponent setOpenInventory={setOpenInventory} player={player} setPlayer={setPlayer}/>}
       {openSkills && <SkillsComponent setOpenSkills={setOpenSkills}/>}
     </div>
   )

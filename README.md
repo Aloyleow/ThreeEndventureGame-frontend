@@ -22,3 +22,8 @@ map
 2. Path state will determine encounter
 3. Story -> Choose path -> encounter -> victory/death -> ChoosePath
 
+items
+1. send info to back to display what items 
+2. buy items will add to item list ->
+3. inventory will fetch data again including player type to determine use case
+

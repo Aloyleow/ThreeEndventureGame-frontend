@@ -1,15 +1,8 @@
-type Level = {
-  level: number
+type PathTaken = {
+  pathTaken: number
 };
 
-type StoreItemsResponse = {
-  levelId: number;
-  name: string;
-  cost: number;
-  description: string;
-}[];
-
-const storeItems = async (level: Level): Promise<StoreItemsResponse> => {
+const storeItems = async (pathTaken: PathTaken): Promise<ItemsResponse> => {
   try {
 
     const token = localStorage.getItem("token");
@@ -24,7 +17,7 @@ const storeItems = async (level: Level): Promise<StoreItemsResponse> => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(level),
+      body: JSON.stringify(pathTaken),
 
     });
 
@@ -33,7 +26,7 @@ const storeItems = async (level: Level): Promise<StoreItemsResponse> => {
       throw new Error(json.error);
     }
    
-    return json as StoreItemsResponse;
+    return json as ItemsResponse;
     
   } catch (error) {
 
