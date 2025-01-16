@@ -95,7 +95,7 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
     setItemsInStock((prev) => prev?.filter((item) => item.name !== cart.name))
     setShowToast(false);
   };
-  console.log(player.items)
+
 
   return (
     <>

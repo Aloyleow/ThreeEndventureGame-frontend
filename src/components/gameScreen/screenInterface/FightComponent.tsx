@@ -76,13 +76,20 @@ const FightComponent: React.FC<FightComponentProps> = ({
         encounter: {
           ...prev.encounter,
           health: playerHit.enemyHealth,
-        }
+        },
       }));
+      setPlayer((prev) => ({
+        ...prev,
+        turns: prev.turns ++ 
+      }))
 
       //enemy roll
       const enemyHit: FightResultsResponse = await enemyRoll(reqStatsE);
       setEnemyAttackComment(enemyHit.damageType);
-      setPlayer((prev) => ({ ...prev, health: enemyHit.enemyHealth }));
+      setPlayer((prev) => ({ 
+        ...prev, 
+        health: enemyHit.enemyHealth,
+      }));
 
       //On player Victory
       if (playerHit.enemyHealth === 0 && currentPath.encounter.name === "Anomaly") {
