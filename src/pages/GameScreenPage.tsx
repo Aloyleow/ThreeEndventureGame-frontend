@@ -13,7 +13,6 @@ type GameScreenPageProps = {
 const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) => {
   const [openStore, setOpenStore] = useState(false)
   
-
   return (
     <div className="gameScreenDiv">
       <NoRoleSelectedError player={player} />

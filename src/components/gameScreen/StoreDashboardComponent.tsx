@@ -4,6 +4,7 @@ import storeItems from "../../services/storeItemsService";
 type Cart = {
   numPath: number;
   name: string;
+  role: string;
   cost: number;
   description: string;
   properties: {
@@ -27,6 +28,7 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
   const [cart, setCart] = useState<Cart>({
     numPath: 0,
     name: "",
+    role: "",
     cost: 0,
     description: "",
     properties: {
@@ -91,12 +93,9 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
       ]
     }));
     setItemsInStock((prev) => prev?.filter((item) => item.name !== cart.name))
-    setPlayer((prev) => ({
-      ...prev,
-      items: [...prev.items, cart.name]
-    }))
     setShowToast(false);
   };
+  console.log(player.items)
 
   return (
     <>

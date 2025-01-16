@@ -4,6 +4,7 @@ import inventoryItems from "../../../services/inventoryServices";
 type Item = {
   numPath: number;
   name: string;
+  role: string;
   cost: number;
   description: string;
   properties: {
@@ -29,6 +30,7 @@ const InventoryComponent: React.FC<InventoryComponentProps> = ({ setOpenInventor
     const showItemsInInventory = async () => {
 
       try {
+        console.log(player.items)
 
         const checkItemsInStock: ItemsResponse = await inventoryItems({ items: player.items });
         setInventory(checkItemsInStock);
@@ -94,7 +96,7 @@ const InventoryComponent: React.FC<InventoryComponentProps> = ({ setOpenInventor
             <p>{item.name}</p>
             <p>{item.cost}g</p>
             <p>-{item.description}</p>
-            <button onClick={() => handleOnUse(item)}>Use</button>
+            <button>Use</button>
           </div>
         ))}
       </div>

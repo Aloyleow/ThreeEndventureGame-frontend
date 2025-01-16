@@ -33,6 +33,7 @@ declare global {
   type ItemsResponse = {
     numPath: number;
     name: string;
+    role: string;
     cost: number;
     description: string;
     properties: {
