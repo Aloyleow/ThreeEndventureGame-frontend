@@ -674,3 +674,21 @@ p {
     linear-gradient(#000 0 0) 0/0% no-repeat #ddd;
   animation: l1 1s infinite linear;
 }
+
+.load-page {
+  position: fixed;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.load-page div {
+  width: 50%;
+}
