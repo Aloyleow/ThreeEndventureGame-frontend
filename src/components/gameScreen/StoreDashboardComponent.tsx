@@ -100,25 +100,21 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
   return (
     <>
       {openStore &&
-        <div className="toastyToastBackground">
-          <div className="gameToastDiv">
+        <div className="toasty-toast">
+          <div className="store-toasty-div">
             <div>
               <h3>ThreeEnd Store</h3>
             </div>
-            <div>
+            <div className="store-playergold-div">
               <h4>Gold: {player.gold}</h4>
             </div>
-            <div className="storeDisplayDiv">
+            <div className="store-display">
               {itemsInStock?.map((obj, index) => (
                 <div key={index}>
-                  <div className="itemDescripDiv">
-                    <h4>{obj.name}</h4>
-                    <p>{obj.cost}g</p>
-                    <p>-{obj.description}</p>
-                  </div>
-                  <div>
-                    <button onClick={() => { handleOnClickItem(obj) }}>Buy</button>
-                  </div>
+                  <h4>{obj.name}</h4>
+                  <p>{obj.cost}g</p>
+                  <p>-{obj.description}</p>
+                  <button onClick={() => { handleOnClickItem(obj) }}>Buy</button>
                 </div>
               ))}
             </div>
@@ -126,15 +122,13 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
               <button onClick={() => setOpenStore(false)} className="buttonsNavigate">Close shop</button>
             </div>
             {showToast &&
-              <div className="cartToast">
-                <div className="cartDisplay">
+              <div className="cart-toast">
+                <h4>{cart.name}</h4>
+                <div className="cart-display">
                   <div>
-                    <h4>{cart.name}</h4>
-                    <p>{cart.cost}</p>
-                    <p>{cart.description}</p>
-                    <div>
-                      {showError && <h3>{buyError}</h3>}
-                    </div>
+                    <p>Cost: {cart.cost}g</p>
+                    <p>Info: {cart.description}</p>
+                    {showError && <h3>{buyError}</h3>}       
                   </div>
                   <div>
                     <h4>Properties</h4>
@@ -145,17 +139,22 @@ const StoreDashboardComponent: React.FC<StoreDashboardComponentProps> = ({ openS
                     {cart.properties.maxmana !== 0 ? <p>Max Mana: {cart.properties.maxmana}</p> : null}
                   </div>
                 </div>
-
-                <div className="cartButtonDiv">
+                <div className="toasty-2buttons-div">
                   <button
                     onClick={() => handleOnBuy()}
-                  >Buy</button>
+                    className="buttons-selection"
+                  >
+                    Buy
+                  </button>
                   <button
                     onClick={() => {
                       setShowError(false)
                       setShowToast(false)
                     }}
-                  >Close</button>
+                    className="buttons-selection"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             }

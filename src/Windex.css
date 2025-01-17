@@ -1,0 +1,512 @@
+@media (max-width: 767px) {
+
+  /* App main div */
+  .appMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*Game screen*/
+
+  .gameScreenDiv {
+    height: 85vh;
+    width: 90vw;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*Human Dashboard*/
+
+  .HdashboardDiv div {
+    margin: 0px 15px 0px 15px
+  }
+
+  /* Gamescreen Interface */
+
+  .enemyFightDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .playerFightDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .attackCommentsDiv {
+    width: 220px;
+    height: 60px;
+    font-weight: bold;
+  }
+
+  /* StoreDashBoard / Skills Dashboard */
+
+  .gameToastDiv {
+    position: fixed;
+    height: 90vh;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+
+}
+
+@media (min-width: 768px) {
+
+  /* App main div */
+  .appMain {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /*Game screen*/
+
+  .gameScreenDiv {
+    height: 80vh;
+    width: 90vw;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*Human Dashboard*/
+
+  .HdashboardDiv div {
+    margin: 0px 48px 0px 48px
+  }
+
+  /* Gamescreen Interface */
+
+  .enemyFightDiv {
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+  }
+
+  .playerFightDiv {
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .attackCommentsDiv {
+    width: 280px;
+    height: 60px;
+    font-size: large;
+    font-weight: bold;
+  }
+
+
+
+  /* StoreDashBoard / Skills Dashboard */
+
+  .gameToastDiv {
+    top: 25%;
+    left: 25%;
+    position: fixed;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+}
+
+@media (max-width: 991px) {}
+
+@media (min-width: 992px) {}
+
+a {
+  color: black !important;
+}
+
+.textAlign {
+  text-align: center;
+}
+
+/* Buttons */
+
+.buttonsAuth {
+  background-color: transparent;
+  height: 28px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.buttonsNavigate {
+  border-radius: 5px;
+  background-color: transparent;
+  height: 48px;
+  width: 128px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.buttonsGame {
+  border-radius: 5px;
+  background-color: transparent;
+  height: 68px;
+  width: 68px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.buttonsGame p {
+  font-weight: bold;
+  font-size: medium;
+  margin: 0
+}
+
+
+/*home displays*/
+
+.formDisplayScreenDiv {
+  height: 480px;
+  width: 320px;
+  border: 1px solid #e0e0e0;
+}
+
+.fdsHeadingDiv {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.fdsFormDiv {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.fdsNavDiv {
+  height: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fdsBTLDiv {
+  margin-left: 20px;
+}
+
+/* Auth forms Layout */
+
+.formsInputDiv {
+  height: 38px;
+  width: 280px;
+  margin-bottom: 10px;
+}
+
+.formsInputDiv input {
+  border-radius: 5px;
+  height: 28px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.formsErrorDiv {
+  height: 18px;
+  width: 280px;
+  color: red;
+}
+
+.formNavDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+}
+
+.formSuccess {
+  text-align: center;
+}
+
+/*Game menu*/
+
+.gameMenuPageDiv {
+  height: 480px;
+  width: 320px;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.gmVnotesDiv {
+  margin-left: 10px;
+  font-size: smaller;
+}
+
+.gameMenuDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuItemDiv {
+  cursor: pointer;
+}
+
+/*Role select*/
+
+.roleSelectDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.roleSelectDiv div {
+  width: 100px;
+}
+
+.roleSelectDiv p {
+  margin: 10px
+}
+
+/* toasty */
+
+.toastyToastBackground {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.toastyToast {
+  height: 160px;
+  width: 320px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.toastyToast div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+
+
+/*Human Dashboard*/
+
+.HdashboardDiv {
+  width: 90vw;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+/*Gamescreen Interface*/
+
+.screenInterfaceDiv {
+  width: 90vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.landingDiv {
+  width: 90%;
+}
+
+.landingDiv div button {
+  margin-top: 10px;
+}
+
+.pathChoiceDiv {
+  height: 100%;
+  width: 100%;
+}
+
+.pathChoiceDiv div {
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fightDiv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.endingDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.endingDiv div {
+  margin-bottom: 20px;
+}
+
+
+
+/*Store Dashboard*/
+
+.storeDisplayDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.storeDisplayDiv p {
+  margin: 0px 10px 10px 0px
+}
+
+.itemDescripDiv {
+  width: 130px;
+  height: 110px;
+}
+
+.cartToast {
+  position: absolute;
+  height: 260px;
+  width: 360px;
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.cartDisplay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 88%;
+}
+
+.cartButtonDiv button {
+  margin: 0px 10px 0px 10px
+}
+
+/* inventory */
+
+.inventoryDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.invItemDiv {
+  width: 120px;
+  height: 130px;
+}
+
+.invItemDiv p {
+  margin: 0px 10px 10px 0px
+}
+
+@keyframes shakeError {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.inputError {
+  animation: shakeError 0.3s ease-in-out;
+  border: 1px solid red;
+}
+
+.loader {
+  justify-self: center;
+  height: 2px;
+  width: 100%;
+  border-radius: 10px;
+  background:
+    linear-gradient(#000 0 0) 0/0% no-repeat #ddd;
+  animation: l1 1s infinite linear;
+}
+
+@keyframes l1 {
+  100% {
+    background-size: 100%
+  }
+}

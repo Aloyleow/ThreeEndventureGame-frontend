@@ -31,8 +31,8 @@ const NoRoleSelectedError: React.FC<NoRoleSelectedErrorProps> = ({ player }) => 
   return (
     <>
       {showToast &&
-        <div className="toastyToastBackground">     
-          <div className="toastyToast">
+        <div className="toasty-toast">     
+          <div className="toasty-div">
             <h3>Role not selected !</h3> 
             <div>
               <button className="buttonsNavigate" onClick={() => handleBackToMenu()}>Back to menu</button>

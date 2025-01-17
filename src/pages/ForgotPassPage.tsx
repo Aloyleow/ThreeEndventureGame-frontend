@@ -6,15 +6,15 @@ const ForgetPassPage = () => {
   
   return (
     <>
-      <div className="formDisplayScreenDiv">
-        <div className="fdsHeadingDiv">
+      <div className="form-display-div">
+        <div className="fd-heading-div">
           <h3>Forget Password</h3>
         </div>
-        <div className="fdsFormDiv">
+        <div className="fd-form-div">
           <ForgetPassComponent/>
         </div>
         <div>
-          <div className="fdsBTLDiv">
+          <div>
             <Link to="/">Back to Login</Link>
           </div>
         </div>

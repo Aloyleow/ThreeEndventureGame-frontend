@@ -31,8 +31,10 @@ function App() {
   
   return (
     <>
-      <div className="appMain">
-        <h1>Three Endventure Game</h1>
+      <div className="app-structure-div">
+        <div className="app-structure-heading-div">
+          <h1>Three Endventure Game</h1>
+        </div>
         <Routes>
           <Route path="/" element={<LoginPage/>} />
           <Route path="/signup" element={<SignupPage/>} />

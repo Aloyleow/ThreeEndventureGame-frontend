@@ -58,7 +58,8 @@ const PathChoicesComponent: React.FC<PathChoicesComponentProps> = ({ player, set
 
 
   return (
-    <div className="pathChoiceDiv">
+    <div className="path-choice-div">
+      <h3>Select your path...</h3>
       <div>
         {pathChoices?.map((obj, index) => (
           <div key={index}>

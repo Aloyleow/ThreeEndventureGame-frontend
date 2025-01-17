@@ -63,8 +63,6 @@ const InventoryComponent: React.FC<InventoryComponentProps> = ({ setOpenInventor
     const showItemsInInventory = async () => {
 
       try {
-        console.log(player.items)
-
         const checkItemsInStock: ItemsResponse = await inventoryItems({ items: player.items });
         setInventory(checkItemsInStock);
 
@@ -120,22 +118,23 @@ const InventoryComponent: React.FC<InventoryComponentProps> = ({ setOpenInventor
   };
 
   return (
-    <div className="gameToastDiv">
-      <div>
-        <h3>Inventory</h3>
-      </div>
-      <div className="inventoryDiv">
-        {inventory.map((item, index) => (
-          <div key={index} className="invItemDiv">
-            <p>{item.name}</p>
-            <p>{item.cost}g</p>
-            <p>-{item.description}</p>
-            <button onClick={() => handleOnUse(item)}>Use</button>
-          </div>
-        ))}
-      </div>
-      <div>
-        <button className="buttonsNavigate" onClick={() => setOpenInventory((prev) => !prev)}>Close</button>
+    <div className="toasty-toast">
+      <div className="inventory-toasty-div">
+        <div>
+          <h3>Inventory</h3>
+        </div>
+        <div className="inventory-display">
+          {inventory.map((item, index) => (
+            <div key={index}>
+              <h4>{item.name}</h4>
+              <p>-{item.description}</p>
+              <button onClick={() => handleOnUse(item)}>Use</button>
+            </div>
+          ))}
+        </div>
+        <div>
+          <button className="buttonsNavigate" onClick={() => setOpenInventory((prev) => !prev)}>Close</button>
+        </div>
       </div>
     </div>
   )

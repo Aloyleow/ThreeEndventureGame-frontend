@@ -30,16 +30,16 @@ const RoleSelectComponent: React.FC<RoleSelectComponentProps> = ({ setPlayer }) 
       setLoading(true);
 
       if (!selectedRoleData) {
-        throw new Error ("Selected role missing");
+        throw new Error("Selected role missing");
       }
-  
+
       await recordRole(selectedRoleData);
 
       setShowToast(false);
       navigate("/verified/gamescreen");
 
     } catch (error) {
-      
+
       setShowToastError(true);
       if (error instanceof TypeError) {
         setErrorsLog("Server Error, please contact admin");
@@ -61,45 +61,45 @@ const RoleSelectComponent: React.FC<RoleSelectComponentProps> = ({ setPlayer }) 
 
 
   return (
-    <div>
-      <h3 className="textAlign">Choose your character</h3>
-      <div>
-        {playerRoles.map((obj, index) => (
-          <div key={index} className="roleSelectDiv" onClick={() => handleOnRoleSelect(obj)}>
-            <div>
-              <img src={obj.image} alt={obj.alt} width={58} />
-              <p>{obj.role}</p>
-            </div>
-            <div>
-              <p>Health: {obj.health}</p>
-              <p>Mana: {obj.mana}</p>
-              <p>Attack: {obj.attack}</p>
-              <p>Gold: {obj.gold}</p>
-            </div>
+    <div className="roles-div">
+      {playerRoles.map((obj, index) => (
+        <div key={index} className="role-display">
+          <div>
+            <img src={obj.image} alt={obj.alt} width={58} />
+            <p>{obj.role}</p>
           </div>
-        ))}
-      </div>
+          <div>
+            <p>Health: {obj.health}</p>
+            <p>Mana: {obj.mana}</p>
+            <p>Attack: {obj.attack}</p>
+            <p>Gold: {obj.gold}</p>
+          </div>
+          <div>
+            <button onClick={() => handleOnRoleSelect(obj)} className="buttons-selection">{obj.role}</button>
+          </div>
+        </div>
+      ))}
       {showToast &&
-        <div className="toastyToastBackground">
+        <div className="toasty-toast">
           {!showToastError ?
-          <div className="toastyToast">
-            <h3>You have selected {selectedRoleData?.role} are you certain ? {selectedRoleData?.role === "Human" ? "The road ahead will be tough." : ""}</h3>
-           {loading ?
-            <div className="loader">
+            <div className="toasty-div">
+              <h3>You have selected {selectedRoleData?.role} are you certain ? {selectedRoleData?.role === "Human" ? "The road ahead will be tough." : ""}</h3>
+              {loading ?
+                <div className="loader">
+                </div>
+                :
+                <div className="toasty-2buttons-div">
+                  <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button>
+                  <button className="buttonsNavigate" onClick={() => handleOnNo()}>No</button>
+                </div>}
             </div>
             :
-            <div>
-              <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button>
-              <button className="buttonsNavigate" onClick={() => handleOnNo()}>No</button>
-            </div>} 
-          </div>
-          :
-          <div className="toastyToast">
-            <h3>{errorsLog}</h3>
-            <div>
-              <button className="buttonsNavigate" onClick={() => logout()}>Logout</button>
-            </div> 
-          </div>}
+            <div className="toasty-div">
+              <h3>{errorsLog}</h3>
+              <div>
+                <button className="buttonsNavigate" onClick={() => logout()}>Logout</button>
+              </div>
+            </div>}
         </div>
       }
     </div>

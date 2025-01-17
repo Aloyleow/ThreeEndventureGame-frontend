@@ -12,26 +12,19 @@ type GameScreenPageProps = {
 
 const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) => {
   const [openStore, setOpenStore] = useState(false)
-  
-  return (
-    <div className="gameScreenDiv">
-      <NoRoleSelectedError player={player} />
-      <div className="gameScreenNavBar">
 
-      </div>
-      <div>
-        <ScreenInterfaceComponent
-          player={player}
-          setPlayer={setPlayer}
-          setOpenStore={setOpenStore}
-        />
-      </div>
-      <div>
-        <HumanDashboardComponent
-          player={player}
-          setPlayer={setPlayer}
-        />
-      </div>
+  return (
+    <div className="game-screen-div">
+      <NoRoleSelectedError player={player} />
+      <ScreenInterfaceComponent
+        player={player}
+        setPlayer={setPlayer}
+        setOpenStore={setOpenStore}
+      />
+      <HumanDashboardComponent
+        player={player}
+        setPlayer={setPlayer}
+      />
       <StoreDashboardComponent
         openStore={openStore}
         setOpenStore={setOpenStore}

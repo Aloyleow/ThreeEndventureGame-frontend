@@ -1,150 +1,262 @@
+p {
+  margin: 10px;
+}
+
 @media (max-width: 767px) {
 
-  /* App main div */
-  .appMain {
+  /*Forms*/
+
+  .form-display-div {
+    height: 468px;
+    width: 368px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Game Menu */
+
+  .game-menu-div {
+    height: 468px;
+    width: 368px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gm-items-div div {
+
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 3px 6px rgba(135, 206, 250, 0.8);
+  }
+
+  /* Role Select */
+
+  .role-select-div {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Game screen */
+
+  .game-screen-div {
+    width: 100vw;
+    height: 600px;
+    margin-top: 80px;
+  }
+
+  /* Toasties */
+
+  .toasty-div {
+    background-color: white;
+    border: 1px solid rgba(135, 206, 250, 1);
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
+    text-align: center;
   }
 
-  /*Game screen*/
-
-  .gameScreenDiv {
-    height: 85vh;
-    width: 90vw;
-    border: 1px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /*Human Dashboard*/
-
-  .HdashboardDiv div {
-    margin: 0px 15px 0px 15px
-  }
-
-  /* Gamescreen Interface */
-
-  .enemyFightDiv {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-  }
-
-  .playerFightDiv {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .attackCommentsDiv {
-    width: 220px;
-    height: 60px;
-    font-weight: bold;
-  }
-
-  /* StoreDashBoard / Skills Dashboard */
-
-  .gameToastDiv {
+  .inventory-toasty-div {
+    background-color: white;
+    border: 1px solid rgba(135, 206, 250, 1);
+    width: 100vw;
+    height: 60vh;
     position: fixed;
-    height: 90vh;
-    width: 90vw;
+    top: 0;
+    left: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .store-toasty-div {
+    background-color: white;
+    border: 1px solid rgba(135, 206, 250, 1);
+    width: 100vw;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+
+  .cart-toast {
+    position: absolute;
+    border-radius: 20px;
+    bottom: 40vh;
+    height: 280px;
+    width: 100vw;
     background-color: white;
     border: 1px solid black;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  /* Fights */
+
+  .fight-div {
+    height: 100%;
+    width: 90vw;
+  }
+
 
 
 }
 
 @media (min-width: 768px) {
 
-  /* App main div */
-  .appMain {
-    top: 0;
-    left: 0;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
+  /*Forms*/
+
+  .form-display-div {
+    height: 468px;
+    width: 368px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.5s ease-out;
   }
 
-  /*Game screen*/
+  .form-display-div:hover {
+    border: none;
+    box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.8);
+  }
 
-  .gameScreenDiv {
+  /* Game Menu */
+
+  .game-menu-div {
+    height: 468px;
+    width: 368px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.5s ease-out;
+  }
+
+  .game-menu-div:hover {
+    border: none;
+    box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.8);
+  }
+
+  .gm-items-div div {
+    transition: 0.1s ease-out;
+    cursor: pointer;
+  }
+
+  .gm-items-div div:hover {
+    transform: scale(1.2);
+  }
+
+  /* Role Select */
+
+  .role-select-div {
+    height: 468px;
+    width: 368px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.5s ease-out;
+  }
+
+  .role-select-div:hover {
+    border: none;
+    box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.8);
+  }
+
+  /* Game screen */
+
+  .game-screen-div {
     height: 80vh;
     width: 90vw;
     border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.5s ease-out;
+  }
+
+  .game-screen-div:hover {
+    border: none;
+    box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.8);
+  }
+
+  /* Toasties */
+
+  .toasty-div {
+    background-color: white;
+    border: 1px solid rgba(135, 206, 250, 1);
+    width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
+    text-align: center;
   }
 
-  /*Human Dashboard*/
-
-  .HdashboardDiv div {
-    margin: 0px 48px 0px 48px
-  }
-
-  /* Gamescreen Interface */
-
-  .enemyFightDiv {
-    height: 50%;
-    width: 60%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-
-  }
-
-  .playerFightDiv {
-    height: 50%;
-    width: 60%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .attackCommentsDiv {
-    width: 280px;
-    height: 60px;
-    font-size: large;
-    font-weight: bold;
-  }
-
-
-
-  /* StoreDashBoard / Skills Dashboard */
-
-  .gameToastDiv {
-    top: 25%;
-    left: 25%;
-    position: fixed;
+  .inventory-toasty-div {
+    background-color: white;
+    border: 1px solid rgba(135, 206, 250, 1);
+    width: 500px;
     height: 50vh;
-    width: 50vw;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .store-toasty-div {
+    background-color: white;
+    border: 1px solid rgba(135, 206, 250, 1);
+    width: 500px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-toast {
+    position: absolute;
+    border-radius: 20px;
+    bottom: 40vh;
+    height: 280px;
+    width: 400px;
     background-color: white;
     border: 1px solid black;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  /* Fights */
+
+  .fight-div {
+    height: 100%;
+    width: 70%;
+
+  }
+
 
 }
 
@@ -152,23 +264,38 @@
 
 @media (min-width: 992px) {}
 
-a {
-  color: black !important;
+.app-structure-div {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.textAlign {
-  text-align: center;
+.app-structure-heading-div {
+  position: absolute;
+  top: 0;
 }
 
 /* Buttons */
 
 .buttonsAuth {
   background-color: transparent;
-  height: 28px;
+  height: 38px;
   width: 100%;
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  font-weight: bold;
+}
+
+.buttonsAuth:hover {
+  border: 1px solid rgba(135, 206, 250, 0.5);
+  box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.5);
 }
 
 .buttonsNavigate {
@@ -177,146 +304,311 @@ a {
   height: 48px;
   width: 128px;
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-.buttonsGame {
+.buttonsNavigate:hover {
+  border: 1px solid rgba(135, 206, 250, 0.5);
+  box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.5);
+}
+
+.buttons-selection {
   border-radius: 5px;
   background-color: transparent;
-  height: 68px;
+  height: 48px;
   width: 68px;
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-.buttonsGame p {
-  font-weight: bold;
-  font-size: medium;
-  margin: 0
+.buttons-selection:hover {
+  border: 1px solid rgba(135, 206, 250, 0.5);
+  box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.5);
+  color: lightblue;
 }
 
+/* Forms */
 
-/*home displays*/
-
-.formDisplayScreenDiv {
-  height: 480px;
-  width: 320px;
-  border: 1px solid #e0e0e0;
+.fd-heading-div {
+  width: 100%;
+  height: 10%;
+  text-align: center;
 }
 
-.fdsHeadingDiv {
+.fd-form-div {
+  width: 100%;
+  height: 70%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fd-navigation-div {
+  width: 85%;
   height: 20%;
+  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  justify-content: space-around;
   align-items: center;
 }
 
-.fdsFormDiv {
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 20px;
+.fd-link-div {
+  width: 100%;
+  height: 8%;
+  text-align: center;
 }
 
-.fdsNavDiv {
+.forms-input-div {
+  height: 58px;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forms-input-div input {
+  border-radius: 5px;
+  height: 38px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3) inset;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.forms-error-div {
+
+  height: 18px;
+  width: 280px;
+  color: red;
+}
+
+/* Game-menu */
+
+.game-versionnotes-div {
+  width: 80%;
+  height: 10%;
+}
+
+.gm-items-div {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Role Select */
+
+.role-heading-div {
+  height: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+.roles-div {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.role-display {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.role-display div {
+  width: 100px;
+  text-align: center;
+}
+
+/* Human Dashboard */
+
+.human-dashboard-div {
+  height: 22%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.hd-button-div {
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inventory */
+
+.inventory-toasty-div h3 {
+  margin: 5px;
+}
+
+.inventory-display {
+  width: 92%;
+  height: 76%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.inventory-display div {
+  width: 120px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  border: 1px solid #87CEFA;
+  border-radius: 10px;
+}
+
+/* Store */
+
+.store-toasty-div h3 {
+  margin: 5px;
+}
+
+.store-toasty-div h4 {
+  margin: 5px;
+}
+
+.store-playergold-div {
+  width: 90%;
+  color: #87CEFA;
+}
+
+.store-display {
+  width: 92%;
+  height: 80%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.store-display div {
+  width: 120px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  border: 1px solid #87CEFA;
+  border-radius: 10px;
+}
+
+.store-display div p {
+  margin: 5px;
+}
+
+.cart-display {
+
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-display div {
+  width: 50%;
+}
+
+/* Screen Interface */
+
+.screen-interface-div {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Path Choices */
+
+.landing-div {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.path-choice-div {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.path-choice-div div {
+  width: 100%;
   height: 30%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.fdsBTLDiv {
-  margin-left: 20px;
-}
+/* FIGHTS */
 
-/* Auth forms Layout */
-
-.formsInputDiv {
-  height: 38px;
-  width: 280px;
-  margin-bottom: 10px;
-}
-
-.formsInputDiv input {
-  border-radius: 5px;
-  height: 28px;
-  border: 1px solid #e0e0e0;
-  width: 100%;
-  text-align: center;
-  padding: 0;
-}
-
-.formsErrorDiv {
-  height: 18px;
-  width: 280px;
-  color: red;
-}
-
-.formNavDiv {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 280px;
-}
-
-.formSuccess {
-  text-align: center;
-}
-
-/*Game menu*/
-
-.gameMenuPageDiv {
-  height: 480px;
-  width: 320px;
-  border: 1px solid #e0e0e0;
+.enemyfight-div {
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: flex-end;
 }
 
-.gmVnotesDiv {
-  margin-left: 10px;
-  font-size: smaller;
-}
-
-.gameMenuDiv {
+.enemy-display-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.menuItemDiv {
-  cursor: pointer;
-}
-
-/*Role select*/
-
-.roleSelectDiv {
+.playerfight-div {
+  height: 50%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  transition: 0.3s linear;
-  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.roleSelectDiv div {
-  width: 100px;
+.comments-enemyfight-div {
+  height: 60px;
+  font-weight: bold;
 }
 
-.roleSelectDiv p {
-  margin: 10px
+.comments-playerfight-div {
+  width: 300px;
+  height: 60px;
+  font-weight: bold;
 }
 
-/* toasty */
 
-.toastyToastBackground {
+
+
+
+/* Toasties */
+
+.toasty-toast {
   top: 0;
   left: 0;
   position: fixed;
@@ -325,148 +617,19 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
-.toastyToast {
-  height: 160px;
-  width: 320px;
-  text-align: center;
-  background-color: white;
-  border: 1px solid black;
-}
-
-.toastyToast div {
+.toasty-2buttons-div {
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  width: 100%;
 }
 
 
 
-/*Human Dashboard*/
-
-.HdashboardDiv {
-  width: 90vw;
-  height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid #e0e0e0;
-}
-
-/*Gamescreen Interface*/
-
-.screenInterfaceDiv {
-  width: 90vw;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.landingDiv {
-  width: 90%;
-}
-
-.landingDiv div button {
-  margin-top: 10px;
-}
-
-.pathChoiceDiv {
-  height: 100%;
-  width: 100%;
-}
-
-.pathChoiceDiv div {
-  height: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.fightDiv {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.endingDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.endingDiv div {
-  margin-bottom: 20px;
-}
-
-
-
-/*Store Dashboard*/
-
-.storeDisplayDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px; 
-}
-
-.storeDisplayDiv p {
-  margin: 0px 10px 10px 0px
-}
-
-.itemDescripDiv {
-  width: 130px;
-  height: 110px;
-}
-
-.cartToast {
-  position: absolute;
-  height: 260px;
-  width: 360px;
-  background-color: white;
-  border: 1px solid black;
-  text-align: center;
-}
-
-.cartDisplay {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 88%;
-}
-
-.cartButtonDiv button {
-  margin: 0px 10px 0px 10px
-}
-
-/* inventory */
-
-.inventoryDiv{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.invItemDiv {
-  width: 120px;
-  height: 130px;
-}
-
-.invItemDiv p {
-  margin: 0px 10px 10px 0px
-}
+/* Authentication Effects */
 
 @keyframes shakeError {
   0% {
@@ -495,6 +658,13 @@ a {
   border: 1px solid red;
 }
 
+/* Loader */
+@keyframes l1 {
+  100% {
+    background-size: 100%
+  }
+}
+
 .loader {
   justify-self: center;
   height: 2px;
@@ -503,10 +673,4 @@ a {
   background:
     linear-gradient(#000 0 0) 0/0% no-repeat #ddd;
   animation: l1 1s infinite linear;
-}
-
-@keyframes l1 {
-  100% {
-    background-size: 100%
-  }
 }

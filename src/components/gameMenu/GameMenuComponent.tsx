@@ -42,12 +42,11 @@ const GameMenuComponent = () => {
   };
 
   return (
-    <div className="gameMenuDiv">
+    <div className="gm-items-div">
       {gameMenu.map((obj, index) => (
         <div 
         key={index} 
         onClick={() => handleMenuClick(obj.link)}
-        className="menuItemDiv"
         >
           <h3>{obj.display}</h3>
         </div>

@@ -78,7 +78,7 @@ const SignupComponent = () => {
     >
       {({ values, isSubmitting }) => (
         <Form>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             <Field
               type="text"
               name="username"
@@ -86,7 +86,7 @@ const SignupComponent = () => {
               className={errorsAnimation.username ? "inputError" : ""}
             />
           </div>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             <Field
               type="password"
               name="password"
@@ -94,7 +94,7 @@ const SignupComponent = () => {
               className={errorsAnimation.password ? "inputError" : ""}
             />
           </div>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             <Field
               type="text"
               name="email"
@@ -102,7 +102,7 @@ const SignupComponent = () => {
               className={errorsAnimation.email ? "inputError" : ""}
             />
           </div>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             {isSubmitting ?
               <div className='loader'>
               </div>
@@ -117,15 +117,15 @@ const SignupComponent = () => {
               </button>
             }
           </div>
-          <div className='formsErrorDiv'>
+          <div className='forms-error-div'>
             <p>{errorsLog}</p>
           </div>
         </Form>
       )}
     </Formik>}
     {success && 
-    <div>
-      <h3>You have succefully Signed up!</h3>
+    <div className='forms-success-div'>
+      <p>You have succefully Signed up!</p>
     </div>
     }
     </>

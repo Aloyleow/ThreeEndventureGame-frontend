@@ -78,9 +78,9 @@ const ExistingSessionError = () => {
   return (
     <>
       {showToast &&
-        <div className="toastyToastBackground">
+        <div className="toasty-toast">
           {!showToastError ?
-          <div className="toastyToast">
+          <div className="toasty-div">
             <h3>Exisitng session in place, continue ?</h3>
            {loading ?
             <div className="loader">
@@ -92,7 +92,7 @@ const ExistingSessionError = () => {
             </div>} 
           </div>
           :
-          <div className="toastyToast">
+          <div className="toasty-div">
             <h3>{errorsLog}</h3>
             <div>
               <button className="buttonsNavigate" onClick={() => logout()}>Logout</button>

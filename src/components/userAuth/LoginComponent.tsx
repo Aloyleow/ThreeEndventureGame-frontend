@@ -80,7 +80,7 @@ const LoginComponent = () => {
     >
       {({ values, isSubmitting }) => (
         <Form>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             <Field
               type="text"
               name="username"
@@ -88,7 +88,7 @@ const LoginComponent = () => {
               className={errorsAnimation.username ? "inputError" : ""}
             />
           </div>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             <Field
               type="password"
               name="password"
@@ -96,7 +96,7 @@ const LoginComponent = () => {
               className={errorsAnimation.password ? "inputError" : ""}
             />
           </div>
-          <div className='formsInputDiv'>
+          <div className='forms-input-div'>
             {isSubmitting ?
               <div className='loader'>
               </div>
@@ -108,10 +108,10 @@ const LoginComponent = () => {
                   handleErrorsOnClick(values.username, values.password)
                 }}>
                 Login
-              </button>
+              </button>   
             }
           </div>
-          <div className='formsErrorDiv'>
+          <div className='forms-error-div'>
             <p>{errorsLog}</p>
           </div>
         </Form>

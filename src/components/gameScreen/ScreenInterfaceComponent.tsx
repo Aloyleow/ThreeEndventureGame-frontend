@@ -34,7 +34,7 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
   const [currentPath, setCurrentPath] = useState<SelectedPath>(pathPlaceHolder)
 
   return (
-    <div className="screenInterfaceDiv">
+    <div className="screen-interface-div">
       {showlanding &&
         <LandingComponent
           setShowLanding={setShowLanding}

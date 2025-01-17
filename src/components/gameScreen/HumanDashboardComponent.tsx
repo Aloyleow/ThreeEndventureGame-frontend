@@ -12,15 +12,15 @@ const HumanDashboardComponent: React.FC<HumanDashboardComponentProps> = ({ playe
   
 
   return (
-    <div className="HdashboardDiv">
+    <div className="human-dashboard-div">
       <div>
         <p>Health: {player.health}/{player.maxhealth}</p>
         <p>Mana: {player.mana}/{player.maxmana}</p>
         <p>Attack: {player.attack}</p>
         <p>Gold: {player.gold}</p>
       </div>
-      <div>
-        <button onClick={() => setOpenInventory((prev) => !prev)} className="buttonsGame">Inventory</button>
+      <div className="hd-button-div">
+        <button onClick={() => setOpenInventory((prev) => !prev)} className="buttons-selection">Inventory</button>
       </div>
       {openInventory && <InventoryComponent setOpenInventory={setOpenInventory} player={player} setPlayer={setPlayer}/>}
     </div>

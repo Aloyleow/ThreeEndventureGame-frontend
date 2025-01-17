@@ -67,7 +67,7 @@ const ForgetPassComponent = () => {
         >
           {({ values, isSubmitting }) => (
             <Form>
-              <div className='formsInputDiv'>
+              <div className='forms-input-div'>
                 <Field
                   type="text"
                   name="email"
@@ -75,7 +75,7 @@ const ForgetPassComponent = () => {
                   className={errorsAnimation ? "inputError" : ""}
                 />
               </div>
-              <div className='formsInputDiv'>
+              <div className='forms-input-div'>
                 {isSubmitting ?
                   <div className='loader'>
                   </div>
@@ -90,15 +90,16 @@ const ForgetPassComponent = () => {
                   </button>
                 }
               </div>
-              <div className='formsErrorDiv'>
+              <div className='fd-link-div'>
                 <p>{errorsLog}</p>
               </div>
             </Form>
           )}
         </Formik>}
       {success &&
-        <div className='formSuccess'>
-          <h3>Your temporary password has been emailed to you. Please wait for 5 minutes if you have not recieved any email.</h3>
+        <div className='forms-success-div'>
+          <p>Your temporary password has been emailed to you.</p>
+          <p>Please wait for 5 minutes if you have not recieved any email.</p>
         </div>
       }
     </>

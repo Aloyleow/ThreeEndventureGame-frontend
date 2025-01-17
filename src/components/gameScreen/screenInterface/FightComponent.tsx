@@ -47,7 +47,7 @@ const FightComponent: React.FC<FightComponentProps> = ({
   const [enemyAttackComment, setEnemyAttackComment] = useState<string>("");
   const [showNext, setShowNext] = useState(false);
 
-  
+
 
   const handleOnFight = async () => {
     const reqStatsP: ReqStatsPlayerRoll = {
@@ -80,28 +80,28 @@ const FightComponent: React.FC<FightComponentProps> = ({
       }));
       setPlayer((prev) => ({
         ...prev,
-        turns: prev.turns ++ 
+        turns: prev.turns++
       }))
 
       //enemy roll
       const enemyHit: FightResultsResponse = await enemyRoll(reqStatsE);
       setEnemyAttackComment(enemyHit.damageType);
-      setPlayer((prev) => ({ 
-        ...prev, 
+      setPlayer((prev) => ({
+        ...prev,
         health: enemyHit.enemyHealth,
       }));
 
       //On player Victory
       if (playerHit.enemyHealth === 0 && currentPath.encounter.name === "Anomaly") {
         setPlayer((prev) => ({
-          ...prev, 
+          ...prev,
           active: false,
           win: true
         }));
-        await saveRole(player) 
+        await saveRole(player)
         setShowFight(false);
         setShowAnoVictory(true);
-      } 
+      }
 
       if (playerHit.enemyHealth === 0 && currentPath.encounter.name !== "Anomaly") {
         setPlayer((player) => ({
@@ -118,19 +118,19 @@ const FightComponent: React.FC<FightComponentProps> = ({
 
       //On player death
       if (enemyHit.enemyHealth === 0 && currentPath.encounter.name === "Anomaly") {
-        setPlayer((prev) => ({...prev, active: false}));
+        setPlayer((prev) => ({ ...prev, active: false }));
         await deleteRole();
         setShowFight(false);
-        setShowAnoLost(true);    
+        setShowAnoLost(true);
       }
 
       if (enemyHit.enemyHealth === 0 && currentPath.encounter.name !== "Anomaly") {
-        setPlayer((prev) => ({...prev, active: false}));
+        setPlayer((prev) => ({ ...prev, active: false }));
         await deleteRole();
         setShowFight(false);
         setShowDeath(true);
       }
-      
+
 
     } catch (error) {
 
@@ -150,29 +150,23 @@ const FightComponent: React.FC<FightComponentProps> = ({
   }
 
   return (
-    <div className="fightDiv">
-      <div className="enemyFightDiv">
-        <div>
+    <div className="fight-div">
+      <div className="enemyfight-div">
+        <div className="enemy-display-div">
           <h3>{currentPath.encounter.name}</h3>
           <p>Health: {currentPath.encounter.health}</p>
-          {showNext ?
-            <button onClick={() => handleOnNext()}>Next</button>
-            :
-            <button onClick={() => handleOnFight()}>Fight</button>}
-          <div className="attackCommentsDiv">
-            <p>{playerAttackComment}</p>
-          </div>
-
+          {!showNext && <button onClick={() => handleOnFight()} className="buttons-selection">Fight</button>}
         </div>
-
+        <div className="comments-enemyfight-div">
+          <p>{playerAttackComment}</p>
+        </div>
+        {showNext && <button onClick={() => handleOnNext()} className="buttons-selection">Next</button>}
       </div>
-      <div className="playerFightDiv">
-        <div>
-          <div className="attackCommentsDiv">
-            <p>{enemyAttackComment}</p>
-          </div>
-          <img src={player.image} alt={player.alt} width={80} />
+      <div className="playerfight-div">
+        <div className="comments-playerfight-div">
+          <p>{enemyAttackComment}</p>
         </div>
+        <img src={player.image} alt={player.alt} width={80} />
       </div>
     </div>
   )

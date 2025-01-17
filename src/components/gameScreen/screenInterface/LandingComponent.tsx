@@ -22,11 +22,11 @@ const LandingComponent: React.FC<LandingComponentProps> = ({ player, setShowLand
     },[player])
   
   return (
-    <div className="landingDiv">
+    <div className="landing-div">
       {showStory ?
         <div>
-          <h2>The only way out is getting to one of the</h2>
-          <h2>Three Ends</h2>
+          <h2>Something in the world went wrong, an anomaly appeared and disrupted reality, you are the only survivor. Find it and kill it! </h2>
+          <h3>The only way out is getting to one of the Three Ends</h3>
           <button className="buttonsNavigate" onClick={() => setShowLanding(false)}>Next</button>
         </div>
         :
