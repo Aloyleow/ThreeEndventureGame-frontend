@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 
 import deleteRole from "../../services/deleteRoleService";
 import activeRoleCheck from "../../services/activeRoleCheckService";
 
-// type ExistingSessionErrorProps = {
-//   setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
-// };
+type ExistingSessionErrorProps = {
+  setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
+};
 
-const ExistingSessionError = () => {
+const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setPlayer }) => {
   const [showToast, setShowToast] = useState(false);
   const [showToastError, setShowToastError] = useState(false);
   const [errorsLog, setErrorsLog] = useState("");
   const [loading, setLoading] = useState(false);
-  // const [tempCharData, setTempCharData] = useState<CharSelectedType>();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { logout } = useAuth();
 
   useEffect(() => {
@@ -27,10 +26,10 @@ const ExistingSessionError = () => {
         const checkExistingSess = await activeRoleCheck()
         if ("checked" in checkExistingSess && checkExistingSess.checked === "na") {
           return
-        } else {
-          // setTempCharData(checkExistingSess)
+        } else if ( !("checked" in checkExistingSess) && checkExistingSess ){
+          setPlayer(checkExistingSess)
           setShowToast(true)
-        }
+        } 
 
       } catch (error) {
 
@@ -43,15 +42,15 @@ const ExistingSessionError = () => {
         }
       }
     };
+    
 
     checkPlayerChar();
   }, []);
 
-  // const handleOnYes = () => {
-  //   setSelectedChar(tempCharData);
-  //   setShowToast(false);
-  //   navigate("/verified/gamescreen");
-  // };
+  const handleOnYes = () => {
+    setShowToast(false);
+    navigate("/verified/gamescreen");
+  };
 
   const handleOnDelete = async () => {
     setLoading(true);
@@ -87,7 +86,7 @@ const ExistingSessionError = () => {
             </div>
             :
             <div>
-              {/* <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button> */}
+              <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button>
               <button className="buttonsNavigate" onClick={() => handleOnDelete()}>Delete</button>
             </div>} 
           </div>

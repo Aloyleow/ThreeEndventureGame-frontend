@@ -15,7 +15,7 @@ const RoleSelectPage: React.FC<RoleSelectPageProps> = ({ setPlayer }) => {
         <h3>Choose your character</h3>
       </div>
       <RoleSelectComponent setPlayer={setPlayer} />
-      <ExistingSessionError />
+      <ExistingSessionError setPlayer={setPlayer}/>
     </div>
   )
 };
