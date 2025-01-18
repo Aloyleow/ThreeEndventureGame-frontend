@@ -3,6 +3,7 @@ import React from "react"
 type Instructions = string[]
 
 const instructions: Instructions = [
+  "Do Not! refresh your browser, use the in-game navigation",
   "Start your adventure",
   "Choose your character",
   "Follow the story",
@@ -35,6 +36,14 @@ const gameMechanics = [
     name: "Skills",
     about: [
       "Coming soon!"
+    ]
+  },
+  {
+    name: "Saves",
+    about: [
+      "Your character is autosaved after everyfight",
+      "If logout happens during fight, your data will not be saved",
+      "You can continue your run again by starting the adventure"
     ]
   }
 ]

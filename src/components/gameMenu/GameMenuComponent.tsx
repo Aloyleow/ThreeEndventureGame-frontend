@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
+import React from "react";
 
 type GameMenu = {
   display: string;
@@ -13,7 +14,7 @@ const gameMenu: GameMenu = [
   },
   {
     display: "Instructions",
-    link: "/verified/instructions"
+    link: "inst"
   },
   {
     display: "Highscores",
@@ -29,16 +30,22 @@ const gameMenu: GameMenu = [
   },
 ];
 
-const GameMenuComponent = () => {
+type GameMenuComponentProps = {
+  setOpenInstructions: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const GameMenuComponent: React.FC<GameMenuComponentProps> = ({ setOpenInstructions }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleMenuClick = (item: string) => {
     if (item === "logout") {
       logout();
+    } else if (item === "inst"){
+      setOpenInstructions(true);
     } else {
       navigate(item);
-    };
+    }
   };
 
   return (

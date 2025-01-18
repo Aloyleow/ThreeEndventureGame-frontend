@@ -35,7 +35,7 @@ type BackendLoaded = {
 }
 function App() {
   const [player, setPlayer] = useState<PlayerType>(playerTypePlaceHolder);
-  const [openInstructions, setOpenInstructions] = useState(true)
+  const [openInstructions, setOpenInstructions] = useState(false)
   const [onLoad, setOnLoad] = useState<boolean>(true);
 
   useEffect(() => {

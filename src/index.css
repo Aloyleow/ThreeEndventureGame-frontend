@@ -29,7 +29,6 @@ p {
   }
 
   .gm-items-div div {
-
     width: 100%;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -64,8 +63,28 @@ p {
 
   .game-screen-div {
     width: 100vw;
-    height: 600px;
+    min-height: 600px;
+    height: 80vh;
     margin-top: 80px;
+  }
+
+  /* Screen Navbar */
+
+  .gs-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+  }
+
+  .gs-navbar div {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0px 3px 6px rgba(135, 206, 250, 0.8)
   }
 
   /* Toasties */
@@ -237,6 +256,22 @@ p {
     transition: box-shadow 0.5s ease-out;
   }
 
+  /* Screen Navbar */
+
+  .gs-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8%;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+  }
+
+  .gs-navbar div:hover {
+    color: #87CEFA;
+  }
+
   /* Toasties */
 
   .toasty-div {
@@ -298,7 +333,7 @@ p {
     flex-direction: column;
   }
 
- 
+
 
   /* Fights */
 
@@ -309,18 +344,16 @@ p {
 
   @keyframes pulse {
     0% {
-      
+
       box-shadow: 0 0 0 0 rgba(135, 206, 250, 0.8);
     }
-  
+
     70% {
       box-shadow: 0 0 0 50px rgba(135, 206, 250, 0);
     }
-  
-    100% {
-      
-    }
-  
+
+    100% {}
+
   }
 
 }
@@ -664,6 +697,8 @@ p {
   height: 80%;
   overflow-y: auto;
 }
+
+
 
 
 
