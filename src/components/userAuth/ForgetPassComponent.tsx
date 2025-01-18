@@ -90,7 +90,7 @@ const ForgetPassComponent = () => {
                   </button>
                 }
               </div>
-              <div className='fd-link-div'>
+              <div className='forms-error-div'>
                 <p>{errorsLog}</p>
               </div>
             </Form>

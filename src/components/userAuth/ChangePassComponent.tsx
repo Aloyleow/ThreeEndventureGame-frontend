@@ -69,59 +69,59 @@ const ChangePassComponent = () => {
 
   return (
     <>
-    {!success && <Formik
-      validationSchema={changePasswordSchema}
-      onSubmit={handleChangePass}
-      initialValues={{
-        oldPassword: "",
-        newPassword: ""
-      }}
-    >
-      {({ values, isSubmitting }) => (
-        <Form>
-          <div className='formsInputDiv'>
-            <Field
-              type="password"
-              name="oldPassword"
-              placeholder="Old Password"
-              className={errorsAnimation.oldPassword ? "inputError" : ""}
-            />
-          </div>
-          <div className='formsInputDiv'>
-            <Field
-              type="password"
-              name="newPassword"
-              placeholder="New Password"
-              className={errorsAnimation.newPassword ? "inputError" : ""}
-            />
-          </div>
-          <div className='formsInputDiv'>
-            {isSubmitting ?
-              <div className='loader'>
-              </div>
-              :
-              <button
-                type="submit"
-                className='buttonsAuth'
-                onClick={() => {
-                  handleErrorsOnClick(values.oldPassword, values.newPassword)
-                }}>
-                Change Password
-              </button>
-            }
-          </div>
-          <div className='formsErrorDiv'>
-            <p>{errorsLog}</p>
-          </div>
-        </Form>
-      )}
-    </Formik>}
-    {success &&
-      <div className='formSuccess'>
-        <h3>Password Changed!</h3>
-      </div>
-    }
-</>
+      {!success && <Formik
+        validationSchema={changePasswordSchema}
+        onSubmit={handleChangePass}
+        initialValues={{
+          oldPassword: "",
+          newPassword: ""
+        }}
+      >
+        {({ values, isSubmitting }) => (
+          <Form>
+            <div className='forms-input-div'>
+              <Field
+                type="password"
+                name="oldPassword"
+                placeholder="Old Password"
+                className={errorsAnimation.oldPassword ? "inputError" : ""}
+              />
+            </div>
+            <div className='forms-input-div'>
+              <Field
+                type="password"
+                name="newPassword"
+                placeholder="New Password"
+                className={errorsAnimation.newPassword ? "inputError" : ""}
+              />
+            </div>
+            <div className='forms-input-div'>
+              {isSubmitting ?
+                <div className='loader'>
+                </div>
+                :
+                <button
+                  type="submit"
+                  className='buttonsAuth'
+                  onClick={() => {
+                    handleErrorsOnClick(values.oldPassword, values.newPassword)
+                  }}>
+                  Change Password
+                </button>
+              }
+            </div>
+            <div className='forms-error-div'>
+              <p>{errorsLog}</p>
+            </div>
+          </Form>
+        )}
+      </Formik>}
+      {success &&
+        <div className='forms-success-div'>
+          <h3>Password Changed!</h3>
+        </div>
+      }
+    </>
   )
 }
 

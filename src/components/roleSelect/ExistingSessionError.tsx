@@ -85,7 +85,7 @@ const ExistingSessionError: React.FC<ExistingSessionErrorProps> = ({ setPlayer }
             <div className="loader">
             </div>
             :
-            <div>
+            <div className="toasty-2buttons-div">
               <button className="buttonsNavigate" onClick={() => handleOnYes()}>Yes</button>
               <button className="buttonsNavigate" onClick={() => handleOnDelete()}>Delete</button>
             </div>} 

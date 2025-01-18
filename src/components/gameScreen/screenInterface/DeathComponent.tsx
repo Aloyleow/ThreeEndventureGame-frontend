@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 const DeathComponent = () => {
   const navigate = useNavigate()
   return (
-    <div className="endingDiv">
+    <div className="ending-div">
       <div>
         <h1>Dead End</h1>
       </div>

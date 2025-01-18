@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 const AnomalyWinComponent = () => {
   const navigate = useNavigate()
   return (
-    <div className="endingDiv">
+    <div  className="ending-div">
       <div>
         <h1>The End</h1>
       </div>
