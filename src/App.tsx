@@ -12,6 +12,7 @@ import loadPage from "./services/loadingPageService"
 import LoadPage from "./pages/LoadPage"
 import InstructionsComponent from "./components/InstructionsComponent"
 import ProfilePage from "./pages/ProfilePage"
+import HighScorePage from "./pages/HighScorePage"
 
 const playerTypePlaceHolder = {
   image: "",
@@ -76,6 +77,7 @@ function App() {
           <Route path="/forgotpassword" element={<ForgetPassPage />} />
           <Route path="/verified" element={<AuthorisedRoute><GameMenuPage setOpenInstructions={setOpenInstructions}/></AuthorisedRoute>} />
           <Route path="/verified/profile" element={<AuthorisedRoute><ProfilePage/></AuthorisedRoute>} />
+          <Route path="/verified/highscore" element={<AuthorisedRoute><HighScorePage/></AuthorisedRoute>} />
           <Route path="/verified/game" element={<AuthorisedRoute><RoleSelectPage setPlayer={setPlayer} /></AuthorisedRoute>} />
           <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage player={player} setPlayer={setPlayer} setOpenInstructions={setOpenInstructions}/></AuthorisedRoute>} />
         </Routes>
