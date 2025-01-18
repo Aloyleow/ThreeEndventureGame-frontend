@@ -12,14 +12,17 @@ type GameScreenPageProps = {
 
 const GameScreenPage: React.FC<GameScreenPageProps> = ({ player, setPlayer }) => {
   const [openStore, setOpenStore] = useState(false)
+  const [pulse, setPulse] = useState(false)
+
 
   return (
-    <div className="game-screen-div">
+    <div className="game-screen-div" style={{animation: `${pulse && player.active ? "pulse 2s" : ""}`}}>
       <NoRoleSelectedError player={player} />
       <ScreenInterfaceComponent
         player={player}
         setPlayer={setPlayer}
         setOpenStore={setOpenStore}
+        setPulse={setPulse}
       />
       <HumanDashboardComponent
         player={player}

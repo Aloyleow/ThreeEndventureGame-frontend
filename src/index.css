@@ -4,6 +4,10 @@ p {
 
 @media (max-width: 767px) {
 
+  .load-page div {
+    width: 90%;
+  }
+
   /*Forms*/
 
   .form-display-div {
@@ -42,6 +46,18 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Landing */
+
+  .landing-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   /* Game screen */
@@ -116,6 +132,10 @@ p {
 
 @media (min-width: 768px) {
 
+  .load-page div {
+    width: 50%;
+  }
+
   /*Forms*/
 
   .form-display-div {
@@ -181,6 +201,18 @@ p {
     box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.8);
   }
 
+  /* Landing */
+
+  .landing-div {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
   /* Game screen */
 
   .game-screen-div {
@@ -194,10 +226,10 @@ p {
     transition: box-shadow 0.5s ease-out;
   }
 
-  .game-screen-div:hover {
+  /* .game-screen-div:hover {
     border: none;
     box-shadow: 0px 6px 12px rgba(135, 206, 250, 0.8);
-  }
+  } */
 
   /* Toasties */
 
@@ -254,9 +286,23 @@ p {
   .fight-div {
     height: 100%;
     width: 70%;
-
   }
 
+  @keyframes pulse {
+    0% {
+      
+      box-shadow: 0 0 0 0 rgba(135, 206, 250, 0.8);
+    }
+  
+    70% {
+      box-shadow: 0 0 0 50px rgba(135, 206, 250, 0);
+    }
+  
+    100% {
+      
+    }
+  
+  }
 
 }
 
@@ -539,16 +585,6 @@ p {
 
 /* Path Choices */
 
-.landing-div {
-  height: 100%;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .path-choice-div {
   height: 100%;
   width: 80%;
@@ -687,8 +723,4 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.load-page div {
-  width: 50%;
 }

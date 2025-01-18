@@ -30,6 +30,8 @@ type FightComponentProps = {
   setShowPaths: React.Dispatch<React.SetStateAction<boolean>>;
   setShowAnoVictory: React.Dispatch<React.SetStateAction<boolean>>;
   setShowAnoLost: React.Dispatch<React.SetStateAction<boolean>>;
+  setPulse: React.Dispatch<React.SetStateAction<boolean>>;
+  
 };
 
 const FightComponent: React.FC<FightComponentProps> = ({
@@ -42,14 +44,18 @@ const FightComponent: React.FC<FightComponentProps> = ({
   setShowPaths,
   setShowAnoVictory,
   setShowAnoLost,
+  setPulse,
 }) => {
   const [playerAttackComment, setPlayerAttackComment] = useState<string>("");
   const [enemyAttackComment, setEnemyAttackComment] = useState<string>("");
   const [showNext, setShowNext] = useState(false);
 
-
-
   const handleOnFight = async () => {
+
+    setPulse(false)
+    setPlayerAttackComment("")
+    setEnemyAttackComment("")
+
     const reqStatsP: ReqStatsPlayerRoll = {
       playerAttack: player.attack,
       enemyHealth: currentPath.encounter.health
@@ -81,15 +87,20 @@ const FightComponent: React.FC<FightComponentProps> = ({
       setPlayer((prev) => ({
         ...prev,
         turns: prev.turns++
-      }))
+      }));
+      setPulse(true);
 
       //enemy roll
       const enemyHit: FightResultsResponse = await enemyRoll(reqStatsE);
-      setEnemyAttackComment(enemyHit.damageType);
-      setPlayer((prev) => ({
-        ...prev,
-        health: enemyHit.enemyHealth,
-      }));
+      if (enemyHit) {
+        setTimeout(() => {
+          setEnemyAttackComment(enemyHit.damageType);
+          setPlayer((prev) => ({
+            ...prev,
+            health: enemyHit.enemyHealth,
+          }));
+        }, 400)   
+      }
 
       //On player Victory
       if (playerHit.enemyHealth === 0 && currentPath.encounter.name === "Anomaly") {
@@ -130,7 +141,6 @@ const FightComponent: React.FC<FightComponentProps> = ({
         setShowFight(false);
         setShowDeath(true);
       }
-
 
     } catch (error) {
 

@@ -10,6 +10,7 @@ type ScreenInterfaceComponentProps = {
   player: PlayerType;
   setPlayer: React.Dispatch<React.SetStateAction<PlayerType>>;
   setOpenStore: React.Dispatch<React.SetStateAction<boolean>>;
+  setPulse: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const pathPlaceHolder = {
@@ -24,7 +25,7 @@ const pathPlaceHolder = {
   }
 }
 
-const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ player, setPlayer, setOpenStore }) => {
+const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ player, setPlayer, setOpenStore, setPulse }) => {
   const [showlanding, setShowLanding] = useState(true);
   const [showPaths, setShowPaths] = useState(true);
   const [showFight, setShowFight] = useState(false);
@@ -59,6 +60,8 @@ const ScreenInterfaceComponent: React.FC<ScreenInterfaceComponentProps> = ({ pla
           setShowPaths={setShowPaths}
           setShowAnoVictory={setShowAnoVictory}
           setShowAnoLost={setShowAnoLost}
+          setPulse={setPulse}
+          
         />}
       {!showlanding && !showPaths && !showFight && showDeath &&
         <DeathComponent/>
