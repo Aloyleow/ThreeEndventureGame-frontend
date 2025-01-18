@@ -10,6 +10,7 @@ import GameScreenPage from "./pages/GameScreenPage"
 import RoleSelectPage from "./pages/RoleSelectPage"
 import loadPage from "./services/loadingPageService"
 import LoadPage from "./pages/LoadPage"
+import InstructionsComponent from "./components/InstructionsComponent"
 
 const playerTypePlaceHolder = {
   image: "",
@@ -34,6 +35,7 @@ type BackendLoaded = {
 }
 function App() {
   const [player, setPlayer] = useState<PlayerType>(playerTypePlaceHolder);
+  const [openInstructions, setOpenInstructions] = useState(true)
   const [onLoad, setOnLoad] = useState<boolean>(true);
 
   useEffect(() => {
@@ -63,6 +65,7 @@ function App() {
     <>
       <div className="app-structure-div">
         {onLoad && <LoadPage />}
+        {openInstructions && <InstructionsComponent setOpenInstructions={setOpenInstructions}/>}
         <div className="app-structure-heading-div">
           <h1>Three Endventure Game</h1>
         </div>
@@ -70,9 +73,9 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/forgotpassword" element={<ForgetPassPage />} />
-          <Route path="/verified" element={<AuthorisedRoute><GameMenuPage /></AuthorisedRoute>} />
+          <Route path="/verified" element={<AuthorisedRoute><GameMenuPage setOpenInstructions={setOpenInstructions}/></AuthorisedRoute>} />
           <Route path="/verified/game" element={<AuthorisedRoute><RoleSelectPage setPlayer={setPlayer} /></AuthorisedRoute>} />
-          <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage player={player} setPlayer={setPlayer} /></AuthorisedRoute>} />
+          <Route path="/verified/gamescreen" element={<AuthorisedRoute><GameScreenPage player={player} setPlayer={setPlayer} setOpenInstructions={setOpenInstructions}/></AuthorisedRoute>} />
         </Routes>
       </div>
     </>
