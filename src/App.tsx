@@ -69,7 +69,7 @@ function App() {
         {onLoad && <LoadPage />}
         {openInstructions && <InstructionsComponent setOpenInstructions={setOpenInstructions}/>}
         <div className="app-structure-heading-div">
-          <h1>Three Endventure Game</h1>
+          <h1>3 Endventure Game</h1>
         </div>
         <Routes>
           <Route path="/" element={<LoginPage />} />
