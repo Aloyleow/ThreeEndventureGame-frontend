@@ -1,29 +1,46 @@
-defining properties
-1. Human - used in verification where it is automated
-2. User - used in verification where it is manual
-3. Role - player chosen role 
-4. Player - after role chosen, user becomes player
-5. Character - after role chosen, the player controls the character 
+# Three Endventure Game (V2.0.0)
+Start playing here! - [Three Endventure Game](https://threeendventuregame.vercel.app/)
 
-Error checks
-1. Always allow only 1 data to be active
-- Check if player data is still active
-- if true unable to create new char
-- data loaded will always be the active 1 (identify the active session)
-- refresh data on log in (!!!if more than 1 session found throw errors!!!)
-2. ((player.maxHealth && player.maxMana) === 0) exisiting role check
+## Technologies used
 
-notes 
--exisitngsessioncomponent, save file not done up (always delete active session)
--should i delete lose scenarios or keep it for history and allow users to delete it ?
+- Frontend
+-- React (TypeScript)
+-- React router
+-- Vanilla CSS
 
-map
-1. Changed choose fight from v1 to choose path
-2. Path state will determine encounter
-3. Story -> Choose path -> encounter -> victory/death -> ChoosePath
+- Backend
+-- Bun to compile (TypeScript) to js
+-- Express
+-- JWT auth
+-- Zod validation
+-- PostgreSQL
 
-items
-1. send info to back to display what items 
-2. buy items will add to item list ->
-3. inventory will fetch data again including player type to determine use case
+- Deployment
+-- Vercel (Frontend) 
+-- Render (Backend) 
 
+### Description of game
+
+  It is a choose your own adventure, where you choose your role and your path to vanquish the Anomaly.
+  
+  The game was initially designed and implemented using HTML, CSS, and Javascript while attending the Software Engineering Immersive course at General Assembly [V1.0.0](https://github.com/Aloyleow/3Endventure-Game). Upon graduation i decided to change the stack of the game, utilising both backend and frontend with user authentication.
+
+  I decided to stick with the initial "- Game required features" under V1.0.0 MVP which is three end points are required, thus the game name. RNG elements in fights are now more stable and i decided to changed options to choose fights to options to choose path instead. I have also introduced a new feature where users are able to use items. Enjoy your time playing!
+  
+### Game Features
+
+- Role Selection
+- Dynamic Path
+- Items
+- RNG Combat
+- Leaderboard
+
+### Future state of Three Endventure
+
+ - Implement rouge-like Skills option 
+ - Google auth
+ - More images and visuals ( I hope )
+
+
+Terms & Condition
+- This is a small project created for educational and personal purposes. Any resemblance to existing projects or ideas or products is purely coincidental.
