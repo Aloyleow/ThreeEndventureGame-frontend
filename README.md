@@ -1,25 +1,23 @@
-## ...in Progress
-
 # Three Endventure Game (V2.0.0)
 Start playing here! - [Three Endventure Game](https://threeendventuregame.vercel.app/)
 
 ## Technologies used
 
-- Frontend
--- React (TypeScript)
--- React router
--- Vanilla CSS
+- **Frontend**
+  - React (TypeScript)
+  - React Router
+  - Vanilla CSS
 
-- Backend
--- Bun to compile (TypeScript) to js
--- Express
--- JWT auth
--- Zod validation
--- PostgreSQL
+- **Backend**
+  - Bun to compile (TypeScript) to JavaScript
+  - Express
+  - JWT Authentication
+  - Zod Validation
+  - PostgreSQL
 
-- Deployment
--- Vercel (Frontend) 
--- Render (Backend) 
+- **Deployment**
+  - Vercel (Frontend)
+  - Render (Backend)
 
 ### Description of game
 
