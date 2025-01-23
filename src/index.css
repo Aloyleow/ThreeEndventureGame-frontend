@@ -26,7 +26,6 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
   }
 
   .gm-items-div div {
