@@ -1,7 +1,7 @@
 import React from "react";
 import GameMenuComponent from "../components/gameMenu/GameMenuComponent";
 
-const versionNotes: string = "V1.9.0 Imagine the graphics";
+const versionNotes: string = "V2.0.0 Imagine the graphics";
 
 type GameMenuPageProps = {
   setOpenInstructions: React.Dispatch<React.SetStateAction<boolean>>;
